@@ -1,0 +1,13 @@
+install Yarn<br>
+'''
+npm install -g yarn
+'''
+https://en.reactjs.org/docs/getting-started.html<br>
+sudo npm install -g create-react-app<br>
+create-react-app --help<br>
+creare-react-app confusion<br>
+to start the application:<br>
+yarn start<br>
+or<br>
+npm start<br>
+
