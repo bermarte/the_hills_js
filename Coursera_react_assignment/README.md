@@ -11,3 +11,14 @@ create-react-app confusion --scripts-version=react-scripts@1.1.4
 to start the application:<br>
 ```yarn start``` or ```npm start```
 
+to install bootstrap component in react:<br>
+```
+yarn add bootstrap@4.0.0
+yarn add reactstrap@5.0.0
+yarn add react-popper@0.9.2
+```
+using nmp instead:<br>
+```
+npm install bootstrap@4.0.0 reactstrap@5.0.0 react-popper@0.9.2 --save
+```
+
