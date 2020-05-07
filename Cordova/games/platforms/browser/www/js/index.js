@@ -1,9 +1,11 @@
 document.addEventListener("deviceready", toestel_klaar);
 
+
+
 function toestel_klaar() {
     
-    //ocument.getElementById('toestel_info').addEventListener('click', device_info);
     document.getElementById('toestel_info').addEventListener('click', device_info);
+    //document.getElementById('toestel_info').addEventListener('click', device_info);
     //document.getElementById('toestel_info').addEventListener('click', onBatteryStatus);
 
     let boodschap = document.createElement('p');
@@ -17,6 +19,7 @@ function toestel_klaar() {
 
         boodschap.innerHTML = 'uw model is: '+device_model+' en u platform is '+device_platform;
         document.getElementById('info_weergeven').appendChild(boodschap);
+
     }
 
     function onBatteryStatus(status) {

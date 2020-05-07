@@ -10,10 +10,10 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.bermarte.games"
     },
-    "cordova-plugin-device": {
+    "cordova-plugin-battery-status": {
       "PACKAGE_NAME": "com.bermarte.games"
     },
-    "cordova-plugin-battery-status": {
+    "cordova-plugin-device": {
       "PACKAGE_NAME": "com.bermarte.games"
     }
   },
