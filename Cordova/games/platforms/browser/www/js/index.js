@@ -5,7 +5,6 @@ document.addEventListener("deviceready", toestel_klaar);
 function toestel_klaar() {
     
     document.getElementById('toestel_info').addEventListener('click', device_info);
-    //document.getElementById('toestel_info').addEventListener('click', device_info);
     //document.getElementById('toestel_info').addEventListener('click', onBatteryStatus);
 
     let boodschap = document.createElement('p');
@@ -13,11 +12,21 @@ function toestel_klaar() {
     function device_info() {
         console.log('model: '+device.model);
         console.log('model: '+device.platform);
+        console.log('model: '+device.uuid);
+        console.log('model: '+device.version);
+        console.log('model: '+device.manufacturer);
+        console.log('model: '+device.isVirtual);
+        console.log('model: '+device.serial);
 
-        let device_model = device.model;
-        let device_platform = device.platform;
 
-        boodschap.innerHTML = 'uw model is: '+device_model+' en u platform is '+device_platform;
+        boodschap.innerHTML = '<div class="card container-fluid"><div class="card-body"><ul class="list-group list-group-flush">'+
+                              '  <li class="list-group-item list-group-item-action list-group-item-light">your device is: <b>'+device.model+'</b></li>'+
+                              '  <li class="list-group-item list-group-item-action list-group-item-light">your platform is <b>'+device.platform+'</b></li>'+
+                              '  <li class="list-group-item list-group-item-action list-group-item-light"> your version is <b>'+device.version+'</b></li>'+
+                              '  <li class="list-group-item list-group-item-action list-group-item-light">your manufacturer is <b>'+device.manufacturer+'</b></li>'+
+                              '  <li class="list-group-item list-group-item-action list-group-item-light">your platform is virtual <b>'+device.isVirtual+'</b></li>'+
+                              '  <li class="list-group-item list-group-item-action list-group-item-light">your serial is <b>'+device.serial+'</b></li>'+
+                              '</ul></div></div>';
         document.getElementById('info_weergeven').appendChild(boodschap);
 
     }
@@ -31,7 +40,6 @@ function toestel_klaar() {
         document.getElementById('info_battery').appendChild(boodschap);
         
     }
-
 
 }
 
