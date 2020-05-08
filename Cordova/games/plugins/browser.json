@@ -15,6 +15,9 @@
     },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.bermarte.games"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.bermarte.games"
     }
   },
   "dependent_plugins": {}

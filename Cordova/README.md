@@ -28,4 +28,3 @@ to remove a platform
 ```
 cordova platform rm browser
 ```
-
