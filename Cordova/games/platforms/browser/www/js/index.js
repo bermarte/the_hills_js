@@ -19,7 +19,7 @@ function toestel_klaar() {
         console.log('model: '+device.serial);
 
 
-        boodschap.innerHTML = '<div class="card container-fluid"><div class="card-body"><ul class="list-group list-group-flush">'+
+        boodschap.innerHTML = '<div class="card"><div class="card-body"><ul class="list-group list-group-flush">'+
                               '  <li class="list-group-item list-group-item-action list-group-item-light">your device is: <b>'+device.model+'</b></li>'+
                               '  <li class="list-group-item list-group-item-action list-group-item-light">your platform is <b>'+device.platform+'</b></li>'+
                               '  <li class="list-group-item list-group-item-action list-group-item-light"> your version is <b>'+device.version+'</b></li>'+
@@ -27,7 +27,6 @@ function toestel_klaar() {
                               '  <li class="list-group-item list-group-item-action list-group-item-light">your platform is virtual <b>'+device.isVirtual+'</b></li>'+
                               '  <li class="list-group-item list-group-item-action list-group-item-light">your serial is <b>'+device.serial+'</b></li>'+
                               '</ul></div></div>';
-
         document.getElementById('info_weergeven').appendChild(boodschap);
 
     }
@@ -43,5 +42,3 @@ function toestel_klaar() {
     }
 
 }
-
-
