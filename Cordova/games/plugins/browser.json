@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "com.bermarte.games"
+    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.bermarte.games"
     },
@@ -14,9 +17,6 @@
       "PACKAGE_NAME": "com.bermarte.games"
     },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.bermarte.games"
-    },
-    "cordova-plugin-battery-status": {
       "PACKAGE_NAME": "com.bermarte.games"
     }
   },

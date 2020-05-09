@@ -6,7 +6,7 @@ function toestel_klaar() {
     const boodschap = document.createElement('div');
     boodschap.setAttribute("class", "container");
     function device_info() {
-        
+
         //on my pc battery plugin works only for Chrome   
         if(navigator.userAgent.indexOf("Chrome") != -1 )
         {
@@ -41,7 +41,7 @@ function toestel_klaar() {
                                     '</div>';
                                     
                 document.getElementById('info_weergeven').appendChild(boodschap);
-                alert(called_battery);
+
             }
 
     }
