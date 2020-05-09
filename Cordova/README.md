@@ -15,10 +15,14 @@ cordova run
 ```
 install plugins
 ```
-cordova plugin add cordova-plugin-device --save
-cordova plugin add cordova-plugin-battery-status --save
-cordova plugin add cordova-plugin-splashscreen --save
+cordova plugin add cordova-plugin-device
+cordova plugin add cordova-plugin-battery-status
+cordova plugin add cordova-plugin-splashscreen
 cordova plugin ls
+```
+install module
+```
+npm install shelljs --save-dev
 ```
 create node_modules
 ```
