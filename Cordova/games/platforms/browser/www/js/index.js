@@ -15,9 +15,11 @@ function toestel_klaar() {
         else{
             window.addEventListener("click", info);
         }
+        let device_info = boodschap.innerHTML;
+        function info(status){
             
-            function info(status){
-
+            if (device_info == ''){
+                /*
                 console.log('model: '+device.model);
                 console.log('platform: '+device.platform);
                 console.log('uuid: '+device.uuid);
@@ -25,8 +27,9 @@ function toestel_klaar() {
                 console.log('manufacturer: '+device.manufacturer);
                 console.log('is plugged: '+status.isPlugged);
                 console.log('battery level: '+status.level);
+                */
                 
-                boodschap.innerHTML = '<div class="col-12">'+
+                boodschap.innerHTML = '<div class="col-12" id="device-info">'+
                                     '<div class="d-flex mt-5 justify-content-center">'+
                                     ' <div class="card w-100"><div class="card-body"><ul class="list-group list-group-flush">'+
                                     '   <li class="list-group-item list-group-item-action list-group-item-light">your device is: <b>'+device.model+'</b></li>'+
@@ -39,10 +42,13 @@ function toestel_klaar() {
                                     '  <li class="list-group-item list-group-item-action list-group-item-light">level of battery is <b>'+status.level +'</b></li>'+
                                     ' </ul></div></div></div>'+
                                     '</div>';
-                                    
                 document.getElementById('info_weergeven').appendChild(boodschap);
-
             }
+            else{
+               boodschap.innerHTML='';
+               
+            }
+        }
 
     }
 
