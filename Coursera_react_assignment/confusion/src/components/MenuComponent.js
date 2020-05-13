@@ -13,18 +13,8 @@ class Menu extends Component{
         console.log('Menu Component constructor is invoked');
     }
 
-    componentDidMount() {
-        console.log('Menu Component componentDidMount is invoked');
-    }
-
     onDishSelect(dish) {
         this.setState({ selectedDish: dish});
-    }
-    
-    //details
-    renderDish(dish) {
-       
-            return(<DishDetail dish={dish}/>);
     }
 
     render() {
@@ -50,7 +40,7 @@ class Menu extends Component{
                 <div className='row'>
                     {menu}
                 </div>
-                {this.renderDish(this.state.selectedDish)}
+                <DishDetail dish={this.state.selectedDish}/>
             </div>
         );
     }
