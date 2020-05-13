@@ -10,7 +10,11 @@ class DishDetail extends Component{
             const details = (arr.map((comm) =>  
                 <li key={comm.id} className='col'>
                      <p>{comm.comment}</p>
-                     <p>-- {comm.author}, {comm.date}</p>
+                     <p>-- {comm.author}, {new Intl.DateTimeFormat('en-US',
+                     {year: 'numeric', month: 'short', day:'2-digit'}
+                     ).format(new Date(Date.parse(comm.date)))}
+                     }
+                     </p>
                 </li>)
              );
             return <ul className="list-unstyled">{details}</ul>
@@ -22,6 +26,7 @@ class DishDetail extends Component{
 
             if (this.props.dish != null){
                 return  (
+                    <div className='container'>
                     <div className='row'>
                         <div className="col-12 col-md-5 mt-1">
                             <Card>   
@@ -34,13 +39,10 @@ class DishDetail extends Component{
                         </div>
                         {/* comments */}
                         <div className="col-12 col-md-5 mt-1">
-                            <div className='container'>
-                                <h4>Comments</h4>
-                                <div className="row">
-                                    {this.renderComments(this.props.dish.comments)}
-                            </div>
-                            </div>
+                            <h4>Comments</h4>
+                             {this.renderComments(this.props.dish.comments)}
                         </div>
+                    </div>
                     </div>
                  );
             }
