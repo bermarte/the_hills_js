@@ -32,3 +32,8 @@ to remove a platform
 ```
 cordova platform rm browser
 ```
+run server with watch using phonegap
+```
+sudo npm install -g phonegap
+phonegap serve
+```

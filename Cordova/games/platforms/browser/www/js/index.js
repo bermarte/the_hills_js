@@ -37,7 +37,7 @@ function toestel_klaar() {
                                     '   <li class="list-group-item list-group-item-action list-group-item-light"> your version is <b>'+device.version+'</b></li>'+
                                     '   <li class="list-group-item list-group-item-action list-group-item-light">your manufacturer is <b>'+device.manufacturer+'</b></li>'+
                                     '   <li class="list-group-item list-group-item-action list-group-item-light">your platform is virtual <b>'+device.isVirtual+'</b></li>'+
-                                    '   <li class="list-group-item list-group-item-action list-group-item-light">your serial is <b>'+device.serial+'</b></li>'+
+                                     '       <li class="list-group-item list-group-item-action list-group-item-light">your serial is <b>'+device.serial+'</b></li>'+
                                     '   <li class="list-group-item list-group-item-action list-group-item-light">your device is plugged: <b>'+status.isPlugged+'</b></li>'+
                                     '  <li class="list-group-item list-group-item-action list-group-item-light">level of battery is <b>'+status.level +'</b></li>'+
                                     ' </ul></div></div></div>'+
@@ -45,11 +45,53 @@ function toestel_klaar() {
                 document.getElementById('info_weergeven').appendChild(boodschap);
             }
             else{
-               boodschap.innerHTML='';
-               
+                  boodschap.innerHTML='';
+                
             }
         }
 
     }
+    function audio() {
+        var audio = new Audio();
+        audio.src = './tetris/tetris-gameboy.mp3';
+        audio.loop = true;
+        audio.type = 'audio/wav';
+        document.getElementById("play_music").addEventListener("click", playAudio);
+        function playAudio(){
+            !audio.paused ? audio.pause():audio.play();   
+        }
+    }
+    document.getElementById("play_tetris").addEventListener("click", game); 
+    window.addEventListener("load", audio());
 
-}
+    /* 
+    joystick tetris 
+    tetris_left
+    tetris_rotate
+    tetris_right
+    tetris_down
+    */
+
+     document.getElementById("tetris_left").addEventListener("click", left);
+     document.getElementById("tetris_rotate").addEventListener("click", rotate);
+     document.getElementById("tetris_right").addEventListener("click", right);
+     document.getElementById("tetris_down").addEventListener("click", down);
+     function left(){
+         huidig_blok.links();
+         drop_start = Date.now();
+     }
+     
+     function right(){
+         huidig_blok.rechts();
+         drop_start = Date.now();
+     }
+     
+     function down(){
+         huidig_blok.zakken();
+     }
+     function rotate(){
+         huidig_blok.draaien();
+         drop_start = Date.now();
+     }
+   
+}   
