@@ -71,27 +71,27 @@ function toestel_klaar() {
     tetris_right
     tetris_down
     */
+    
+    document.getElementById("tetris_left").addEventListener("click", left);
+    document.getElementById("tetris_rotate").addEventListener("click", rotate);
+    document.getElementById("tetris_right").addEventListener("click", right);
+    document.getElementById("tetris_down").addEventListener("click", down);
+         function left(){
+             huidig_blok.links();
+             drop_start = Date.now();
+         }
 
-     document.getElementById("tetris_left").addEventListener("click", left);
-     document.getElementById("tetris_rotate").addEventListener("click", rotate);
-     document.getElementById("tetris_right").addEventListener("click", right);
-     document.getElementById("tetris_down").addEventListener("click", down);
-     function left(){
-         huidig_blok.links();
-         drop_start = Date.now();
-     }
-     
-     function right(){
-         huidig_blok.rechts();
-         drop_start = Date.now();
-     }
-     
-     function down(){
-         huidig_blok.zakken();
-     }
-     function rotate(){
-         huidig_blok.draaien();
-         drop_start = Date.now();
-     }
+         function right(){
+             huidig_blok.rechts();
+             drop_start = Date.now();
+         }
+
+         function down(){
+             huidig_blok.zakken();
+         }
+         function rotate(){
+             huidig_blok.draaien();
+             drop_start = Date.now();
+         }
    
 }   

@@ -10,7 +10,7 @@ const kleur_leeg = 'white';
 let drop_start = Date.now();
 let score = 0;
 let veld = [];
-let mijn_muziek = new Audio("./tetris-gameboy.mp3");
+//let mijn_muziek = new Audio("./tetris-gameboy.mp3");
 
 /*
 //eventlisteners
@@ -238,9 +238,8 @@ Blok.prototype.bots = function(x, y, blok) {
     return false;
 }
 
-
-
 //gameloop
+
 
 function game() {
     let nu = Date.now();
