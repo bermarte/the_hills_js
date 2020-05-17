@@ -1,34 +1,37 @@
-body{
+body {
     background-color: #dbe8d8;
 }
-.container{
+
+.container {
     background-color: #fff;
 }
-.card{
+
+.card {
     font-family: Arial, Helvetica, sans-serif;
 }
-h1, h2, h3, h4, h5{
+
+h1, h2, h3, h4, h5 {
     text-align: center;
 }
-#mijn_canvas{
+
+#mijn_canvas {
     border: 1px solid black;
     display: block;
     margin: 0 auto;
 }
+
 /* font-awesome svg converted using icomoon */
+
 @font-face {
     font-family: 'icomoon';
-    src:  url(../fonts/icomoon.eot?izveyd');
-    src:  url('../fonts/icomoon.eot?izveyd#iefix') format('embedded-opentype'),
-      url('../fonts/icomoon.ttf?izveyd') format('truetype'),
-      url('../fonts/icomoon.woff?izveyd') format('woff'),
-      url('../fonts/icomoon.svg?izveyd#icomoon') format('svg');
+    src: url(../fonts/icomoon.eot?izveyd');
+    src: url('../fonts/icomoon.eot?izveyd#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?izveyd') format('truetype'), url('../fonts/icomoon.woff?izveyd') format('woff'), url('../fonts/icomoon.svg?izveyd#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
-  }
-  
-  [class^="icon-"], [class*=" icon-"] {
+}
+
+[class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
     speak: none;
@@ -37,44 +40,49 @@ h1, h2, h3, h4, h5{
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-  
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .icon-caret-square-up:before {
-    content: "\e900";
-  }
-  .icon-caret-square-right:before {
-    content: "\e901";
-  }
-  .icon-caret-square-left:before {
-    content: "\e902";
-  }
-  .icon-caret-square-down:before {
-    content: "\e903";
-  }
+}
 
-  /* buttons joystick controller */
-  .btn-up-down{
-    height:40px;
-    width:40px;
+.icon-caret-square-up:before {
+    content: "\e900";
+}
+
+.icon-caret-square-right:before {
+    content: "\e901";
+}
+
+.icon-caret-square-left:before {
+    content: "\e902";
+}
+
+.icon-caret-square-down:before {
+    content: "\e903";
+}
+
+/* buttons joystick controller */
+
+.btn-up-down {
+    height: 40px;
+    width: 40px;
     border: none;
     font-size: larger;
 }
 
-nav, .nav a{
-   font-size: 25px !important;
-   }
-.nav li{
-   padding-right:5px;
-  }
-  /* tele-worm */
-  .container-tele {
-  }
-  #my_canvas {
+nav, .nav a {
+    font-size: 25px !important;
+}
 
+.nav li {
+    padding-right: 5px;
+}
+
+/* tele-worm */
+
+.container-tele {}
+
+#my_canvas {
     border: 20px solid #a4fd92;
-    box-shadow: 0px 0px 22px 0px #888888; */
-  }
+    box-shadow: 0px 0px 22px 0px #888888;
+}

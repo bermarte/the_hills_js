@@ -592,7 +592,7 @@ window.addEventListener("load", () => {
 
   setInterval(function () {
     draw();
-  }, 1000);
+  }, 120);
   document.getElementById("play_tele-worm").addEventListener("click", play_tele_worm);
 
   function play_tele_worm() {
@@ -602,7 +602,7 @@ window.addEventListener("load", () => {
     lifes = 20;
     lifes_teleworm_element.innerHTML = lifes;
     score_teleworm_element.innerHTML = score_tele;
-    game_tele_worm = setInterval(draw, 1000);
+    game_tele_worm = setInterval(draw, 120);
 
   };
 
