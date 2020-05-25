@@ -6,6 +6,7 @@ let dir;
 let score_teleworm_element = document.getElementById('score-tele-worm');
 let lifes_teleworm_element = document.getElementById('lifes-tele-worm');
 let hiscore_teleworm_element = document.getElementById('hiscore-tele-worm');
+let game_tele_worm = null;
 
 window.addEventListener("load", () => {
   const c_tele = document.getElementById("my_canvas");
@@ -552,7 +553,7 @@ window.addEventListener("load", () => {
     worm.unshift(new_block);
 
     //score in canvas
-    /*
+    /* removed:
     ctx_tele.fillStyle = "black";
     ctx_tele.font = "32px Arial";
     ctx_tele.fillText("score = " + score_tele, 0, box);
@@ -585,26 +586,43 @@ window.addEventListener("load", () => {
       }
       ctx_tele.fillText("hi-score: " + hiscore, center, center / 1.9);
       hiscore_teleworm_element.innerHTML = hiscore;
+      end_game();
     }
   }
+  let check = false;
+  function end_game() {
+    if (check) {
+      if (confirm("GAME OVER")) {
+        clearInterval(game_tele_worm);
+        check = false;
+        return;
+      }
+    }
 
-  //let game_tele_worm = setInterval(draw, 100);
-
-  setInterval(function () {
+  }
+  game_tele_worm = setInterval(function () {
     draw();
   }, 120);
+
   document.getElementById("play_tele-worm").addEventListener("click", play_tele_worm);
 
   function play_tele_worm() {
-
     ctx_tele.textAlign = "start";
     score_tele = 0;
     lifes = 20;
     lifes_teleworm_element.innerHTML = lifes;
     score_teleworm_element.innerHTML = score_tele;
     game_tele_worm = setInterval(draw, 120);
-
+    check = true;
+    commands();
   };
+
+  function commands() {
+    document.getElementById("tele_left").addEventListener("click", tele_go_left);
+    document.getElementById("tele_up").addEventListener("click", tele_go_up);
+    document.getElementById("tele_right").addEventListener("click", tele_go_right);
+    document.getElementById("tele_down").addEventListener("click", tele_go_down);
+  }
 
   /* 
     joystick tele-worm 
@@ -613,13 +631,6 @@ window.addEventListener("load", () => {
     tele_right
     tele_down
     */
-
-  document.getElementById("tele_left").addEventListener("click", tele_go_left);
-  document.getElementById("tele_up").addEventListener("click", tele_go_up);
-  document.getElementById("tele_right").addEventListener("click", tele_go_right);
-  document.getElementById("tele_down").addEventListener("click", tele_go_down);
-
-
 
   function tele_go_left() {
     console.log("left");

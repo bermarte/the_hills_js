@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#tetris">Tetris</a>
@@ -35,7 +35,7 @@
           <a class="nav-link" href="#tele-worm">Tele-worm</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">game</a>
+          <a class="nav-link" href="#21">21</a>
         </li>
         <!-- 
            <div id='info_weergeven'></div>
@@ -44,7 +44,7 @@
         </li>
         -->
         <div id="quit_app"></div>
-        
+
       </ul>
     </div>
   </nav>
@@ -54,7 +54,8 @@
   <div class="container p-3 py-5" id="home">
     <h1 class="bg-dark text-white my-5">Games & app</h1>
     <div class="row">
-      <div class="col">
+      <div class="col" id="div-info">
+        <!-- only for browser -->
         <button id='toestel_info' class='btn btn-primary btn-block'>Device Info</button>
         <h2 class='my-3'>Final assignment <span class="badge badge-secondary">2019-2020</span></h2>
         </nav>
@@ -109,9 +110,10 @@
         <div class="col col-12 py-2">
 
           <h5>
-          Hi-score: <span class="badge badge-secondary" id="hiscore-tele-worm">0</span>
-          Score: <span class="badge badge-secondary" id="score-tele-worm">0</span>
-          Lifes: <span class="badge badge-secondary" id="lifes-tele-worm">20</span>
+            <div class="d-none d-sm-inline-block">Hi-score: <span class="badge badge-secondary"
+                id="hiscore-tele-worm">0</span></div>
+            Score: <span class="badge badge-secondary" id="score-tele-worm">0</span>
+            Lifes: <span class="badge badge-secondary" id="lifes-tele-worm">20</span>
           </h5>
           <div class="w-50 mx-auto d-flex justify-content-center py-2">
             <canvas id="my_canvas"></canvas>
@@ -133,19 +135,44 @@
         </div>
       </div>
     </div>
+    <!-- 21 -->
+
+    <div class="container p-3 py-5" id="21">
+      <h1 class="bg-dark text-white my-5">21</h1>
+      <div class="col col-12 py-2">
+        <h4>Score: <span class="badge badge-secondary" id="black_score">0</span> Dealer:
+          <span class="badge badge-secondary" id="black_dealer_score">?</span></h4>
+        <div id="black_results"></div>
+        <div class="container container_black" id='container_black'>
+          <canvas id="canvas_black"></canvas>
+          <div class="row">
+            <div class="my-2 mx-auto">
+              <div class="btn-group" id='black_div'>
+                <input type='button' class='btn btn-primary' value='HIT' id='hit'>
+                <input type='button' class='btn btn-primary' value='STAND' id='stand'>
+                <input type='button' class='btn btn-primary' value='SURRENDER' id='surrender'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-    <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <!-- tetris -->
-    <script src="tetris/js/tetrominoes.js"></script>
-    <script src="tetris/js/main.js"></script>
-    <!-- tele-worm -->
-    <script src="tele-worm/js/main.js"></script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <!-- tetris -->
+  <script src="tetris/js/tetrominoes.js"></script>
+  <script src="tetris/js/main.js"></script>
+  <!-- tele-worm -->
+  <script src="tele-worm/js/main.js"></script>
+  <!-- 21 -->
+  <script src="21/js/main.js"></script>
 </body>
 
 </html>

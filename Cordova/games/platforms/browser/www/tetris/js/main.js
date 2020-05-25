@@ -10,9 +10,11 @@ const kleur_leeg = 'white';
 let drop_start = Date.now();
 let score = 0;
 let veld = [];
-//let mijn_muziek = new Audio("./tetris-gameboy.mp3");
+let id = null;
+//removed: let mijn_muziek = new Audio("./tetris-gameboy.mp3");
 
 /*
+removed:
 //eventlisteners
 document.addEventListener('keydown', besturen);
 
@@ -79,30 +81,30 @@ const blokken = [
 ]
 
 //class Blok
-    function Blok(tetromino, kleur_blok) {
-        this.tetromino = tetromino;
-        this.kleur_blok = kleur_blok;
+function Blok(tetromino, kleur_blok) {
+    this.tetromino = tetromino;
+    this.kleur_blok = kleur_blok;
 
-        this.tetrominoN = 0;
-        this.tetromino_actief = this.tetromino[this.tetrominoN];
+    this.tetrominoN = 0;
+    this.tetromino_actief = this.tetromino[this.tetrominoN];
 
-        this.x = 3;
-        this.y = -2;
-    }
+    this.x = 3;
+    this.y = -2;
+}
 
-    //kiezen willekeurig blok
-    function willekeurig_blok() {
-        let willekeurig = Math.floor(Math.random() * blokken.length);
+//kiezen willekeurig blok
+function willekeurig_blok() {
+    let willekeurig = Math.floor(Math.random() * blokken.length);
 
-        return new Blok(blokken[willekeurig][0], blokken[willekeurig][1])
-    }
+    return new Blok(blokken[willekeurig][0], blokken[willekeurig][1])
+}
 
 let huidig_blok = willekeurig_blok();
 console.log(huidig_blok);
 
 
 //functie om blok te vullen
-Blok.prototype.vullen = function(kleur_blok) {
+Blok.prototype.vullen = function (kleur_blok) {
     for (r = 0; r < this.tetromino_actief.length; r++) {
         for (k = 0; k < this.tetromino_actief.length; k++) {
             if (this.tetromino_actief[r][k] == 1) {
@@ -112,17 +114,17 @@ Blok.prototype.vullen = function(kleur_blok) {
     }
 }
 
-Blok.prototype.tekenen = function() {
+Blok.prototype.tekenen = function () {
     this.vullen(this.kleur_blok);
 }
 
-Blok.prototype.wis = function() {
+Blok.prototype.wis = function () {
     this.vullen(kleur_leeg);
 }
 
 //bewegen
 //beneden
-Blok.prototype.zakken = function() {
+Blok.prototype.zakken = function () {
     if (!this.bots(0, 1, this.tetromino_actief)) {
         this.wis();
         this.y++;
@@ -135,7 +137,7 @@ Blok.prototype.zakken = function() {
 
 }
 
-Blok.prototype.links = function() {
+Blok.prototype.links = function () {
     if (!this.bots(-1, 0, this.tetromino_actief)) {
         this.wis();
         this.x--;
@@ -144,7 +146,7 @@ Blok.prototype.links = function() {
 
 }
 
-Blok.prototype.rechts = function() {
+Blok.prototype.rechts = function () {
     if (!this.bots(1, 0, this.tetromino_actief)) {
         this.wis();
         this.x++;
@@ -154,7 +156,7 @@ Blok.prototype.rechts = function() {
 }
 
 //draaien
-Blok.prototype.draaien = function() {
+Blok.prototype.draaien = function () {
     let volgende_vorm = this.tetromino[(this.tetrominoN + 1) % this.tetromino.length];
     let kick = 0;
 
@@ -177,14 +179,25 @@ Blok.prototype.draaien = function() {
 }
 
 
-Blok.prototype.vast = function() {
+Blok.prototype.vast = function () {
     for (r = 0; r < this.tetromino_actief.length; r++) {
         for (k = 0; k < this.tetromino_actief.length; k++) {
             if (this.tetromino_actief[r][k] == 0) {
                 continue;
             }
             if (this.y + r < 0) {
-                alert('GAME OVER!');
+                if (confirm("GAME OVER")) {
+                    
+                    cancelAnimationFrame(id);
+                    veld = [];
+
+                    for (r = 0; r < rij; r++) {
+                        veld[r] = [];
+                        for (k = 0; k < kolom; k++) {
+                            veld[r][k] = kleur_leeg;
+                        }
+                    }
+                }
                 break;
             }
             veld[this.y + r][this.x + k] = this.kleur_blok;
@@ -213,7 +226,7 @@ Blok.prototype.vast = function() {
 }
 
 //botsen
-Blok.prototype.bots = function(x, y, blok) {
+Blok.prototype.bots = function (x, y, blok) {
     for (r = 0; r < blok.length; r++) {
         for (k = 0; k < blok.length; k++) {
             if (blok[r][k] == 0) {
@@ -249,7 +262,7 @@ function game() {
         drop_start = Date.now();
     }
 
-    requestAnimationFrame(game);
+    id = requestAnimationFrame(game);
 }
 
 //game();

@@ -1,38 +1,37 @@
 document.addEventListener("deviceready", toestel_klaar);
 
 function toestel_klaar() {
-
-    document.getElementById('toestel_info').addEventListener('click', device_info);
     const boodschap = document.createElement('div');
     boodschap.setAttribute("class", "container");
+    //remove info button on android
+    if (navigator.app) {
+        let toestel_info = document.getElementById('toestel_info');
+        document.getElementById('div-info').removeChild(toestel_info);
+    }
+    else {
+        document.getElementById('toestel_info').addEventListener('click', device_info);
+        
+    }
 
     const quit_li = document.createElement('li');
     quit_li.setAttribute("class", "nav-item");
 
     function device_info() {
-
+        
         //on my pc battery plugin works only for Chrome   
         if (navigator.userAgent.indexOf("Chrome") != -1) {
+            
             window.addEventListener("batterystatus", info);
         }
         else {
+            
             window.addEventListener("click", info);
         }
         let device_info = boodschap.innerHTML;
 
         function info(status) {
-
             if (device_info == '') {
-                /*
-                console.log('model: '+device.model);
-                console.log('platform: '+device.platform);
-                console.log('uuid: '+device.uuid);
-                console.log('version: '+device.version);
-                console.log('manufacturer: '+device.manufacturer);
-                console.log('is plugged: '+status.isPlugged);
-                console.log('battery level: '+status.level);
-                */
-
+                
                 boodschap.innerHTML = '<div class="col-12" id="device-info">' +
                     '<div class="d-flex mt-5 justify-content-center">' +
                     ' <div class="card w-100"><div class="card-body"><ul class="list-group list-group-flush">' +
@@ -80,6 +79,7 @@ function toestel_klaar() {
     document.getElementById("tetris_rotate").addEventListener("click", rotate);
     document.getElementById("tetris_right").addEventListener("click", right);
     document.getElementById("tetris_down").addEventListener("click", down);
+    //tetris
     function left() {
         huidig_blok.links();
         drop_start = Date.now();
@@ -100,33 +100,25 @@ function toestel_klaar() {
 
     document.getElementById("quit_app").addEventListener("click", quit_app);
 
+    //quit button does not work on the browser
     if (navigator.app || navigator.device) {
-        quit_div = "<div id='info_weergeven'></div><li class='nav-item'><a class='nav-link' href='#' id='quit_app'>quit</a></li>";
-        document.getElementById('quit_button').innerHTML = quit_div;
+        quit_li.innerHTML = "<a class='nav-link' href='#' id='quit_app'>quit</a>";
+        document.getElementById('quit_app').appendChild(quit_li);
 
     }
-    
-    quit_li.innerHTML = "<a class='nav-link' href='#' id='quit_app'>test</a>";
-    document.getElementById('quit_app').appendChild(quit_li);
-
-
-    
 
     //quit
     function quit_app() {
-
         if (navigator.app) {
-
-            navigator.app.exitApp();
-        } else if (navigator.device) {
-            navigator.device.exitApp();
-        } else {
-
-            window.close();
             if (confirm("Close Window?")) {
-                window.top.close();
+                navigator.app.exitApp();
             }
-
+        } else if (navigator.device) {
+            if (confirm("Close Window?")) {
+                navigator.device.exitApp();
+            }
+        } else {
+            window.close();
         }
     }
 }   
