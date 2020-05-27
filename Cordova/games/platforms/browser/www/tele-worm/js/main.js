@@ -327,14 +327,14 @@ window.addEventListener("load", () => {
   }
 
   function draw() {
-    ctx_tele.fillStyle = "#9b5517";
+    ctx_tele.fillStyle = "#fff";
     ctx_tele.fillRect(0, 0, c_tele.width, c_tele.height);
     //worm
     for (let i = 0; i < worm.length; i++) {
       if (!i == 0) {
-        ctx_tele.fillStyle = "#EB8F7F";
+        ctx_tele.fillStyle = "#70b570";
       } else {
-        ctx_tele.fillStyle = "#C87A32";
+        ctx_tele.fillStyle = "green";
       }
       //shape
       //box: ctx_tele.fillRect(worm[i].x, worm[i].y, box, box);
@@ -349,7 +349,7 @@ window.addEventListener("load", () => {
 
     //target
     ctx_tele.beginPath();
-    ctx_tele.fillStyle = "red";
+    ctx_tele.fillStyle = "blue";
     ctx_tele.arc(point.x, point.y, box / 2, 0, 2 * Math.PI);
     ctx_tele.fill();
 
@@ -358,7 +358,7 @@ window.addEventListener("load", () => {
       for (mr = 0; mr < maze[m].length; mr++) {
         //console.log("m table " + m + "m rij" + mr);
         if (maze[m][mr] === 1) {
-          ctx_tele.fillStyle = "green";
+          ctx_tele.fillStyle = "red";
           ctx_tele.fillRect(mr * box, m * box, box, box);
         }
       }
@@ -570,7 +570,7 @@ window.addEventListener("load", () => {
         y: center
       };
 
-      ctx_tele.fillStyle = "#9b5517";
+      ctx_tele.fillStyle = "#fff";
       ctx_tele.fillRect(0, 0, c_tele.width, c_tele.height);
       ctx_tele.fillStyle = "black";
 
@@ -612,7 +612,7 @@ window.addEventListener("load", () => {
     lifes = 20;
     lifes_teleworm_element.innerHTML = lifes;
     score_teleworm_element.innerHTML = score_tele;
-    game_tele_worm = setInterval(draw, 120);
+    game_tele_worm = setInterval(draw, 1220);
     check = true;
     commands();
   };

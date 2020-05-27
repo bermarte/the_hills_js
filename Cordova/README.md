@@ -86,7 +86,7 @@ cordova run android --save
 ```
 to run on an emulator I had to do like that<br>
 ```
-export ANDROID_HOME=$HOME/Android/Sdk export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$PATH
 ```
 build<br>
 https://cordova.apache.org/docs/en/latest/guide/platforms/android/
