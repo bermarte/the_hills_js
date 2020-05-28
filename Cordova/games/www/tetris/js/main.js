@@ -10,7 +10,7 @@ const kleur_leeg = 'white';
 let drop_start = Date.now();
 let score = 0;
 let veld = [];
-let id = null;
+let request_id = null;
 //removed: let mijn_muziek = new Audio("./tetris-gameboy.mp3");
 
 /*
@@ -187,7 +187,7 @@ Blok.prototype.vast = function () {
             }
             if (this.y + r < 0) {
                 if (confirm("GAME OVER")) {
-                    
+
                     cancelAnimationFrame(id);
                     veld = [];
 
@@ -197,7 +197,12 @@ Blok.prototype.vast = function () {
                             veld[r][k] = kleur_leeg;
                         }
                     }
-                    restart_Tetris();
+
+                    document.getElementById("tetris_left").removeEventListener("click", left);
+                    document.getElementById("tetris_rotate").removeEventListener("click", rotate);
+                    document.getElementById("tetris_right").removeEventListener("click", right);
+                    document.getElementById("tetris_down").removeEventListener("click", down);
+
                 }
                 break;
             }
@@ -254,7 +259,6 @@ Blok.prototype.bots = function (x, y, blok) {
 
 //gameloop
 
-
 function game() {
     let nu = Date.now();
     let verschil_tijd = nu - drop_start;
@@ -262,8 +266,29 @@ function game() {
         huidig_blok.zakken();
         drop_start = Date.now();
     }
-
     id = requestAnimationFrame(game);
+    document.getElementById("tetris_left").addEventListener("click", left);
+    document.getElementById("tetris_rotate").addEventListener("click", rotate);
+    document.getElementById("tetris_right").addEventListener("click", right);
+    document.getElementById("tetris_down").addEventListener("click", down);
+
+}
+//tetris
+function left() {
+    huidig_blok.links();
+    drop_start = Date.now();
 }
 
+function right() {
+    huidig_blok.rechts();
+    drop_start = Date.now();
+}
+
+function down() {
+    huidig_blok.zakken();
+}
+function rotate() {
+    huidig_blok.draaien();
+    drop_start = Date.now();
+}
 //game();

@@ -10,28 +10,28 @@ function toestel_klaar() {
     }
     else {
         document.getElementById('toestel_info').addEventListener('click', device_info);
-        
+
     }
 
     const quit_li = document.createElement('li');
     quit_li.setAttribute("class", "nav-item");
 
     function device_info() {
-        
+
         //on my pc battery plugin works only for Chrome   
         if (navigator.userAgent.indexOf("Chrome") != -1) {
-            
+
             window.addEventListener("batterystatus", info);
         }
         else {
-            
+
             window.addEventListener("click", info);
         }
         let device_info = boodschap.innerHTML;
 
         function info(status) {
             if (device_info == '') {
-                
+
                 boodschap.innerHTML = '<div class="col-12" id="device-info">' +
                     '<div class="d-flex mt-5 justify-content-center">' +
                     ' <div class="card w-100"><div class="card-body"><ul class="list-group list-group-flush">' +
@@ -64,6 +64,8 @@ function toestel_klaar() {
             !audio.paused ? audio.pause() : audio.play();
         }
     }
+    let play_tetris = false;
+    //alert(play_tetris);
     document.getElementById("play_tetris").addEventListener("click", game);
     window.addEventListener("load", audio());
 
@@ -74,11 +76,16 @@ function toestel_klaar() {
     tetris_right
     tetris_down
     */
+        /*
+        document.getElementById("tetris_left").addEventListener("click", left);
+        document.getElementById("tetris_rotate").addEventListener("click", rotate);
+        document.getElementById("tetris_right").addEventListener("click", right);
+        document.getElementById("tetris_down").addEventListener("click", down);
+        */
+    function control_tetris() {
+        alert('control');
+    }
 
-    document.getElementById("tetris_left").addEventListener("click", left);
-    document.getElementById("tetris_rotate").addEventListener("click", rotate);
-    document.getElementById("tetris_right").addEventListener("click", right);
-    document.getElementById("tetris_down").addEventListener("click", down);
     //tetris
     function left() {
         huidig_blok.links();
