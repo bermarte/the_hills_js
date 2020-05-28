@@ -576,8 +576,10 @@ window.addEventListener("load", () => {
 
       ctx_tele.textAlign = "center";
       ctx_tele.font = "bold 22pt Courier";
+      ctx_tele.fillStyle = "red";
       ctx_tele.fillText("GAME OVER", center, center);
       ctx_tele.font = "18pt Courier";
+      ctx_tele.fillStyle = "black";
       ctx_tele.fillText("points: " + score_tele, center, center / 1.5);
       ctx_tele.fillText("'play game' to restart", center, center + 56);
       if (score_tele > hiscore) {

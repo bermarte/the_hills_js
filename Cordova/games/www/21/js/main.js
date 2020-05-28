@@ -1,5 +1,3 @@
-
-
 window.addEventListener("load", function () {
     const c_black = document.getElementById("canvas_black");
     const ctx_black = c_black.getContext("2d");
@@ -9,7 +7,7 @@ window.addEventListener("load", function () {
 
     const stage = new Stage("#fff", c_black.width, c_black.height);
 
-    function BlackJack() {
+    function TwentyOne() {
         let score = 0; //default 0
         let dealer_score = 0; //default 0
         let you = [];
@@ -48,8 +46,8 @@ window.addEventListener("load", function () {
             let hit = randomInt(MIN, MAX);
             console.log(`we have a ${hit}`);
             score += hit;
-            //check if hit is above 9
 
+            //check if hit is above 9
             if (pos_x_you == 0) pos_x_you += spacer;
             else {
                 pos_x_you += square + spacer;
@@ -195,7 +193,7 @@ window.addEventListener("load", function () {
         }
     }
 
-    const black_game = new BlackJack();
+    const black_game = new TwentyOne();
 
     document.getElementById('surrender').addEventListener('click', black_game.surrender);
     document.getElementById('hit').addEventListener('click', black_game.hit);
@@ -232,12 +230,12 @@ window.addEventListener("load", function () {
         ctx_black.lineTo(width, height / 2);
         ctx_black.stroke();
     }
+
     /*
     examples:
     black_game.score = 7;
     console.log(black_game.score);
     black_game.hit();
     */
-
 
 });

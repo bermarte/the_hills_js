@@ -197,6 +197,7 @@ Blok.prototype.vast = function () {
                             veld[r][k] = kleur_leeg;
                         }
                     }
+                    restart_Tetris();
                 }
                 break;
             }
