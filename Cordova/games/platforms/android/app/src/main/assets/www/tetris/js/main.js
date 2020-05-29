@@ -273,6 +273,13 @@ function game() {
     document.getElementById("tetris_down").addEventListener("click", down);
 
 }
+/* 
+joystick tetris 
+tetris_left
+tetris_rotate
+tetris_right
+tetris_down
+*/
 //tetris
 function left() {
     huidig_blok.links();
