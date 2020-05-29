@@ -1,3 +1,4 @@
+# steps to recreate the project from 0
 # install Cordova CLI
 ```
 sudo npm install -g cordova
@@ -38,6 +39,10 @@ sudo npm install -g phonegap
 phonegap serve
 ```
 to build project for Android, in my case using jdk1.8.0_251<br>
+user must login, first<br>
+https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html#license-lightbox<br>
+I have downloaded the Linux x64 Compressed Archive (jdk-8u251-linux-x64.tar.gz)
+
 https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOracleJdkDeb.html
 
 ```
@@ -93,6 +98,12 @@ https://cordova.apache.org/docs/en/latest/guide/platforms/android/
 ```
 cordova build android
 ```
+#to run the project on the browser
+```
+npm install
+phonegap serve
+```
+
 
 
 
