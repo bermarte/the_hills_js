@@ -63,6 +63,18 @@ sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_251/bin/javac
 ```
 install gradle<br>
 https://linuxize.com/post/how-to-install-gradle-on-ubuntu-18-04/<br>
+```
+wget https://services.gradle.org/distributions/gradle-6.4.1-bin.zip -P /tmp
+sudo unzip -d /opt/gradle /tmp/gradle-*.zip
+ls /opt/gradle/gradle-6.4.1
+sudo nano /etc/profile.d/gradle.sh
+```
+paste this code
+```
+export GRADLE_HOME=/opt/gradle/gradle-6.4.1
+export PATH=${GRADLE_HOME}/bin:${PATH}
+```
+
 edit .bashrc<br>
 see https://stackoverflow.com/questions/26256279/how-to-set-android-home-path-in-ubuntu
 ```
