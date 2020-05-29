@@ -55,9 +55,10 @@ java -version
 Check<br>
 https://studiolacosanostra.github.io/2019/07/29/Cordova-Setup-Android-SDK-on-Ubuntu/<br>
 https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#installing-the-requirements<br>
+download https://dl.google.com/android/repository/commandlinetools-linux-6514223_latest.zip
 ```
 mkdir ~/sdk/
-unzip -d ~/sdk/sdk-tools-linux ./commandlinetools-linux-6200805_latest.zip
+unzip -d ~/sdk/sdk-tools-linux ./commandlinetools-linux-6514223_latest.zip
 sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_251/bin/javac" 0
 sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_251/bin/javac
 ```
