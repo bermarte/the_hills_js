@@ -69,7 +69,8 @@ Terminal=false
 StartupNotify=true
 StartupWMClass=android-studio
 ```
-Install a specific SDK version and create a virtual device
+Start Android Studio and complete the installation, by running ./studio.sh inside /opt/android-studio/bin or using the desktop file.<br>
+Install a specific SDK version and create a virtual device using Android Studio.
 
 ## Install the JDK
 To build project for Android using the JDK provided by Oracle (in my case I am using jdk1.8.0_251),
