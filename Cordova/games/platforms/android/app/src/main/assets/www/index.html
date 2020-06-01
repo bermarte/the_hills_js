@@ -49,8 +49,6 @@
     </div>
   </nav>
 
-
-
   <div class="container p-3 py-5" id="home">
     <h1 class="bg-dark text-white my-5">Games & app</h1>
     <div class="row">
@@ -135,33 +133,35 @@
         </div>
       </div>
     </div>
-    <!-- 21 -->
-    <div class="container p-3 py-5" id="21">
-      <h1 class="bg-dark text-white my-5">21</h1>
-      <div class="col col-12 py-2">
-        <h4>Score: <span class="badge badge-secondary" id="black_score">0</span> Dealer:
-          <span class="badge badge-secondary" id="black_dealer_score">?</span></h4>
-        <div id="black_results"></div>
-        <div class="container" id='container_black'>
-          <div class="w-50 mx-auto d-flex justify-content-center py-2">
-            <canvas id="canvas_black"></canvas>
+  </div>
+  <!-- 21 -->
+  <div class="container p-3 py-5" id="21">
+    <h1 class="bg-dark text-white my-5">21</h1>
+    <div class="col col-12 py-2">
+      <h4>Score: <span class="badge badge-secondary" id="black_score">0</span> Dealer:
+        <span class="badge badge-secondary" id="black_dealer_score">?</span></h4>
+      <div id="black_results"></div>
+      <div class="container" id='container_black'>
+        <div class="w-50 mx-auto d-flex justify-content-center py-2">
+          <canvas id="canvas_black"></canvas>
 
-          </div>
-         
-          <div class="row">
-            <div class="my-2 mx-auto">
-              <div class="btn-group" id='black_div'>
-                <input type='button' class='btn btn-primary' value='HIT' id='hit'>
-                <input type='button' class='btn btn-primary' value='STAND' id='stand'>
-                <input type='button' class='btn btn-primary' value='SURRENDER' id='surrender'>
-              </div>
+        </div>
+
+        <div class="row">
+          <div class="my-2 mx-auto">
+            <div class="btn-group" id='black_div'>
+              <input type='button' class='btn btn-primary' value='HIT' id='hit'>
+              <input type='button' class='btn btn-primary' value='STAND' id='stand'>
+              <input type='button' class='btn btn-primary' value='SURRENDER' id='surrender'>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+  <footer class='navbar bg-dark text-light p-5 row d-flex justify-content-center'>
+    <div>Bermarte 2020</div>
+  </footer>
 
   <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
   <script type="text/javascript" src="js/popper.min.js"></script>
@@ -169,7 +169,7 @@
 
   <script type="text/javascript" src="cordova.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
-  
+
   <!-- tetris -->
   <script src="tetris/js/tetrominoes.js"></script>
   <script src="tetris/js/main.js"></script>
@@ -178,7 +178,7 @@
   <!-- 21 -->
   <script src="21/js/main.js"></script>
 
-  
+
 </body>
 
 </html>

@@ -2,7 +2,7 @@ window.addEventListener("load", function () {
     const c_black = document.getElementById("canvas_black");
     const ctx_black = c_black.getContext("2d");
 
-    c_black.width = 439;
+    c_black.width = 500;//max śhould be 1070 (1 X 21)
     c_black.height = 200;
 
     const stage = new Stage("#fff", c_black.width, c_black.height);
@@ -51,6 +51,10 @@ window.addEventListener("load", function () {
             if (pos_x_you == 0) pos_x_you += spacer;
             else {
                 pos_x_you += square + spacer;
+
+                if (pos_x_you > c_black.width){
+                    alert(`your score: ${score}`);
+                }          
             }
             you.push(hit);
 

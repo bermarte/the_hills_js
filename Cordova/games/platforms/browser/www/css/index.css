@@ -1,5 +1,11 @@
 body {
     background-color: #dbe8d8;
+    max-width: 3000px;
+    margin:0 auto;
+}
+nav, footer{
+    max-width: 3000px;
+    margin:0 auto;
 }
 
 .container {
@@ -82,9 +88,9 @@ nav, .nav a {
 
 #my_canvas {
     border: 2px solid #000;
-    min-height: 250px;
+    min-height: 200px;
 }
 #canvas_black{
-    min-height: 130px;
+    min-height: 100px;
     border: 2px solid #000;
 }
