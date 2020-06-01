@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+  <div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#"> <img src="img/browser/ico.png" alt="games" width="50" height="50"> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar"
@@ -43,7 +43,7 @@
           <a class="nav-link" href="#" id="quit_app">quit</a>
         </li>
         -->
-        <div id="quit_app"></div>
+        <li class="nav-item" id="quit_app"></li>
 
       </ul>
     </div>
@@ -56,7 +56,6 @@
         <!-- only for browser -->
         <button id='toestel_info' class='btn btn-primary btn-block'>Device Info</button>
         <h2 class='my-3'>Final assignment <span class="badge badge-secondary">2019-2020</span></h2>
-        </nav>
         <div id='info_weergeven'></div>
       </div>
     </div>
@@ -88,7 +87,7 @@
               <button class='btn-primary btn-up-down' id="tetris_down"><span
                   class="icon-caret-square-down"></span></button>
             </div>
-            <button class='btn btn-primary btn-lg' id="tetris_right"><span class="icon-caret-square-right"></button>
+            <button class='btn btn-primary btn-lg' id="tetris_right"><span class="icon-caret-square-right"></span></button>
           </div>
         </div>
       </div>
@@ -107,12 +106,13 @@
 
         <div class="col col-12 py-2">
 
-          <h5>
+            <div class="row d-flex justify-content-center">
             <div class="d-none d-sm-inline-block">Hi-score: <span class="badge badge-secondary"
                 id="hiscore-tele-worm">0</span></div>
             Score: <span class="badge badge-secondary" id="score-tele-worm">0</span>
             Lifes: <span class="badge badge-secondary" id="lifes-tele-worm">20</span>
-          </h5>
+          </div>
+          
           <div class="w-50 mx-auto d-flex justify-content-center py-2">
             <canvas id="my_canvas"></canvas>
 
@@ -127,7 +127,7 @@
                 <button class='btn-primary btn-up-down' id="tele_down"><span
                     class="icon-caret-square-down"></span></button>
               </div>
-              <button class='btn btn-primary btn-lg' id="tele_right"><span class="icon-caret-square-right"></button>
+              <button class='btn btn-primary btn-lg' id="tele_right"><span class="icon-caret-square-right"></span></button>
             </div>
           </div>
         </div>
@@ -162,13 +162,14 @@
   <footer class='navbar bg-dark text-light p-5 row d-flex justify-content-center'>
     <div>Bermarte 2020</div>
   </footer>
+</div>
 
-  <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-3.5.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
-  <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+  <script src="cordova.js"></script>
+  <script src="js/index.js"></script>
 
   <!-- tetris -->
   <script src="tetris/js/tetrominoes.js"></script>

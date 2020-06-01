@@ -13,8 +13,8 @@ function toestel_klaar() {
 
     }
 
-    const quit_li = document.createElement('li');
-    quit_li.setAttribute("class", "nav-item");
+    const quit_li = document.createElement('div');
+    //quit_li.setAttribute("class", "nav-item");
 
     function device_info() {
 

@@ -2,7 +2,7 @@
 <widget id="com.bermarte.games" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>games</name>
     <description>
-        A sample Apache Cordova application.
+        A sample Apache Cordova application made by Bermarte.
     </description>
     <author email="" href="">
         bermarte
@@ -19,7 +19,7 @@
     <allow-intent href="geo:*" />
     <platform name="browser">
         <preference name="AutoHideSplashScreen" value="true" />
-        <preference name="SplashScreenDelay" value="0"/>
+        <preference name="SplashScreenDelay" value=""/>
 
         <preference name="SplashScreen" value="/img/browser/splashscreen.png" />
         <preference name="SplashScreenBackgroundColor" value="#4d8f93" />

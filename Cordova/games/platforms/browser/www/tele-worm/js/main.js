@@ -7,6 +7,7 @@ let score_teleworm_element = document.getElementById('score-tele-worm');
 let lifes_teleworm_element = document.getElementById('lifes-tele-worm');
 let hiscore_teleworm_element = document.getElementById('hiscore-tele-worm');
 let game_tele_worm = null;
+const myspeed = 1000;
 
 window.addEventListener("load", () => {
   const c_tele = document.getElementById("my_canvas");
@@ -614,10 +615,11 @@ window.addEventListener("load", () => {
     lifes = 20;
     lifes_teleworm_element.innerHTML = lifes;
     score_teleworm_element.innerHTML = score_tele;
-    game_tele_worm = setInterval(draw, 1220);
+    game_tele_worm = setInterval(draw, myspeed);
     check = true;
     commands();
   };
+  
 
   function commands() {
     document.getElementById("tele_left").addEventListener("click", tele_go_left);
