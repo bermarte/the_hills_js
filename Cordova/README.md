@@ -74,10 +74,9 @@ Start Android Studio, by running ./studio.sh inside /opt/android-studio/bin or u
 Install a specific SDK version and create a virtual device using Android Studio.
 
 ## Download and install the JDK
-To download the JDK provided by Oracle (in my case I am using jdk1.8.0_251),
-the user must first be logged.<br>
+To download the JDK provided by Oracle (here it's jdk1.8.0_251),
+the user must be logged in first.<br>
 https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html#license-lightbox<br>
-I have downloaded the Linux x64 Compressed Archive available.<br>
 https://docs.datastax.com/en/jdk-install/doc/jdk-install/installOracleJdkDeb.html
 
 ```
