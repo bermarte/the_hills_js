@@ -85,7 +85,8 @@ sudo tar zxvf jdk-*-linux-x64.tar.gz -C /usr/lib/jvm
 sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_251/bin/java" 1
 sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_251/bin/java
 ```
-## Download and install the commandlinetools
+## Download and install the command line tools
+Here it's commandlinetools-linux-6514223_latest.zip, it could be different.<br>
 https://studiolacosanostra.github.io/2019/07/29/Cordova-Setup-Android-SDK-on-Ubuntu/<br>
 https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#installing-the-requirements<br>
 download https://dl.google.com/android/repository/commandlinetools-linux-6514223_latest.zip
@@ -96,7 +97,7 @@ unzip -d ~/sdk/sdk-tools-linux ./commandlinetools-linux-6514223_latest.zip
 sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_251/bin/javac" 0
 sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_251/bin/javac
 ```
-Install gradle<br>
+Install gradle (gradle-6.4.1 or above)<br>
 https://linuxize.com/post/how-to-install-gradle-on-ubuntu-18-04/
 ```
 wget https://services.gradle.org/distributions/gradle-6.4.1-bin.zip -P /tmp
@@ -131,16 +132,18 @@ Load the .bashrc file
 source ~/.bashrc
 ```
 # Build project against specific SDK
-To use an older version of android SDK, in this case android 4.1
+To use an older version of android SDK, in this case android 4.1<br>
 https://stackoverflow.com/questions/48217823/how-to-compile-cordova-apps-for-older-android-versions
+https://cordova.apache.org/docs/en/latest/guide/platforms/android/
 ```
+cordova platform remove android
 cordova platform add android@6.4.0
 ```
 # Emulator
 ```
 export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$PATH
 ```
-build https://cordova.apache.org/docs/en/latest/guide/platforms/android/
+launch emulator
 ```
 cordova emulate android
 ```
