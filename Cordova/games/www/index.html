@@ -15,154 +15,166 @@
 </head>
 
 <body>
-  <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#"> <img src="img/browser/ico.png" alt="games" width="50" height="50"> </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="app container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#"> <img src="img/browser/ico.png" alt="games" width="50" height="50"> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar"
+        aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#tetris">Tetris</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#tele-worm">Tele-worm</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#21">21</a>
-        </li>
-        <!-- 
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tetris">Tetris</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tele-worm">Tele-worm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#21">21</a>
+          </li>
+          <!-- 
            <div id='info_weergeven'></div>
            <li class="nav-item">
           <a class="nav-link" href="#" id="quit_app">quit</a>
         </li>
         -->
-        <li class="nav-item" id="quit_app"></li>
+          <li class="nav-item" id="quit_app"></li>
 
-      </ul>
-    </div>
-  </nav>
-
-  <div class="container p-3 py-5" id="home">
-    <h1 class="bg-dark text-white my-5">Games & app</h1>
-    <div class="row">
-      <div class="col" id="div-info">
-        <!-- only for browser -->
-        <button id='toestel_info' class='btn btn-primary btn-block'>Device Info</button>
-        <h2 class='my-3'>Final assignment <span class="badge badge-secondary">2019-2020</span></h2>
-        <div id='info_weergeven'></div>
+        </ul>
       </div>
-    </div>
-  </div>
+    </nav>
 
-  <!-- tetris-->
-  <div class="container p-3 py-5" id="tetris">
-    <h1 class="bg-dark text-white my-5">Tetris</h1>
-    <div class="row">
-      <div class="col col-12">
+    <div class="container p-3 py-5" id="home">
+      <h1 class="bg-dark text-white my-5">Games & Apps <span id="encora">Encora</span></h1>
+      <div class="row">
+        <div class="col" id="div-info">
+          <!-- only for browser -->
+          <button id='toestel_info' class='btn btn-primary btn-block'>Device Info</button>
+          <h2 class='my-3'>Final assignment <span class="badge badge-secondary">2019-2020</span></h2>
 
-        <div class="btn-group btn-block btn-block" role="group">
-          <button class='btn btn-primary' id="play_music">play music</button>
-          <button class='btn btn-primary' id="play_tetris">play game</button>
-        </div>
 
-      </div>
-      <div class="col col-12 py-2">
-        <h4>Score: <span class="badge badge-secondary" id="score">0</span></h4>
-        <canvas id="mijn_canvas" width="200" height="400"></canvas>
-        <!-- joystick tetris-->
-        <div class="w-50 mx-auto d-flex justify-content-center py-2">
-          <div class="btn-group" role="group">
-            <button class='btn btn-primary btn-lg' id="tetris_left"><span
-                class="icon-caret-square-left"></span></button>
-            <div class="btn-group-vertical">
-              <button class='btn-primary btn-up-down' id="tetris_rotate"><span
-                  class="icon-caret-square-up"></span></button>
-              <button class='btn-primary btn-up-down' id="tetris_down"><span
-                  class="icon-caret-square-down"></span></button>
-            </div>
-            <button class='btn btn-primary btn-lg' id="tetris_right"><span class="icon-caret-square-right"></span></button>
-          </div>
+          <div id='info_weergeven'></div>
         </div>
       </div>
+
     </div>
 
-    <!-- tele-worm -->
-    <div class="container p-3 py-5" id="tele-worm">
-      <h1 class="bg-dark text-white my-5">Tele-worm</h1>
+    <!-- tetris-->
+    <div class="container p-3 py-5" id="tetris">
+      <h1 class="bg-dark text-white my-5">Tetris</h1>
       <div class="row">
         <div class="col col-12">
 
           <div class="btn-group btn-block btn-block" role="group">
-            <button class='btn btn-primary' id="play_tele-worm">play game</button>
+            <button class='btn btn-primary' id="play_music">play music</button>
+            <button class='btn btn-primary' id="play_tetris">play game</button>
           </div>
+
         </div>
-
         <div class="col col-12 py-2">
-
-            <div class="row d-flex justify-content-center">
-            <div class="d-none d-sm-inline-block">Hi-score: <span class="badge badge-secondary"
-                id="hiscore-tele-worm">0</span></div>
-            Score: <span class="badge badge-secondary" id="score-tele-worm">0</span>
-            Lifes: <span class="badge badge-secondary" id="lifes-tele-worm">20</span>
-          </div>
-          
-          <div class="w-50 mx-auto d-flex justify-content-center py-2">
-            <canvas id="my_canvas"></canvas>
-
-          </div>
-          <!-- joystick tele-worm -->
+          <h4>Score: <span class="badge badge-secondary" id="score">0</span></h4>
+          <canvas id="mijn_canvas" width="200" height="400"></canvas>
+          <!-- joystick tetris-->
           <div class="w-50 mx-auto d-flex justify-content-center py-2">
             <div class="btn-group" role="group">
-              <button class='btn btn-primary btn-lg' id="tele_left"><span
+              <button class='btn btn-primary btn-lg' id="tetris_left"><span
                   class="icon-caret-square-left"></span></button>
               <div class="btn-group-vertical">
-                <button class='btn-primary btn-up-down' id="tele_up"><span class="icon-caret-square-up"></span></button>
-                <button class='btn-primary btn-up-down' id="tele_down"><span
+                <button class='btn-primary btn-up-down' id="tetris_rotate"><span
+                    class="icon-caret-square-up"></span></button>
+                <button class='btn-primary btn-up-down' id="tetris_down"><span
                     class="icon-caret-square-down"></span></button>
               </div>
-              <button class='btn btn-primary btn-lg' id="tele_right"><span class="icon-caret-square-right"></span></button>
+              <button class='btn btn-primary btn-lg' id="tetris_right"><span
+                  class="icon-caret-square-right"></span></button>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- 21 -->
-  <div class="container p-3 py-5" id="21">
-    <h1 class="bg-dark text-white my-5">21</h1>
-    <div class="col col-12 py-2">
-      <h4>Score: <span class="badge badge-secondary" id="black_score">0</span> Dealer:
-        <span class="badge badge-secondary" id="black_dealer_score">?</span></h4>
-      <div id="black_results"></div>
-      <div class="container" id='container_black'>
-        <div class="w-50 mx-auto d-flex justify-content-center py-2">
-          <canvas id="canvas_black"></canvas>
 
-        </div>
-
+      <!-- tele-worm -->
+      <div class="container p-3 py-5" id="tele-worm">
+        <h1 class="bg-dark text-white my-5">Tele-worm</h1>
         <div class="row">
-          <div class="my-2 mx-auto">
-            <div class="btn-group" id='black_div'>
-              <input type='button' class='btn btn-primary' value='HIT' id='hit'>
-              <input type='button' class='btn btn-primary' value='STAND' id='stand'>
-              <input type='button' class='btn btn-primary' value='SURRENDER' id='surrender'>
+          <div class="col col-12">
+
+            <div class="btn-group btn-block btn-block" role="group">
+              <button class='btn btn-primary' id="play_tele-worm">play game</button>
+            </div>
+          </div>
+
+          <div class="col col-12 py-2">
+
+            <div class="row d-flex justify-content-center">
+              <div class="d-none d-sm-inline-block">Hi-score: <span class="badge badge-secondary"
+                  id="hiscore-tele-worm">0</span></div>
+              Score: <span class="badge badge-secondary" id="score-tele-worm">0</span>
+              Lifes: <span class="badge badge-secondary" id="lifes-tele-worm">20</span>
+            </div>
+
+            <div class="w-50 mx-auto d-flex justify-content-center py-2">
+              <canvas id="my_canvas"></canvas>
+
+            </div>
+            <!-- joystick tele-worm -->
+            <div class="w-50 mx-auto d-flex justify-content-center py-2">
+              <div class="btn-group" role="group">
+                <button class='btn btn-primary btn-lg' id="tele_left"><span
+                    class="icon-caret-square-left"></span></button>
+                <div class="btn-group-vertical">
+                  <button class='btn-primary btn-up-down' id="tele_up"><span
+                      class="icon-caret-square-up"></span></button>
+                  <button class='btn-primary btn-up-down' id="tele_down"><span
+                      class="icon-caret-square-down"></span></button>
+                </div>
+                <button class='btn btn-primary btn-lg' id="tele_right"><span
+                    class="icon-caret-square-right"></span></button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- 21 -->
+    <div class="container p-3 py-5" id="21">
+      <h1 class="bg-dark text-white my-5">21</h1>
+      <div class="col col-12 py-2">
+        <h4>Score: <span class="badge badge-secondary" id="black_score">0</span> Dealer:
+          <span class="badge badge-secondary" id="black_dealer_score">?</span></h4>
+        <div id="black_results"></div>
+        <div class="container" id='container_black'>
+          <div class="w-50 mx-auto d-flex justify-content-center py-2">
+            <canvas id="canvas_black"></canvas>
+
+          </div>
+
+          <div class="row">
+            <div class="my-2 mx-auto">
+              <div class="btn-group" id='black_div'>
+                <input type='button' class='btn btn-primary' value='HIT' id='hit'>
+                <input type='button' class='btn btn-primary' value='STAND' id='stand'>
+                <input type='button' class='btn btn-primary' value='SURRENDER' id='surrender'>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class='navbar bg-dark text-light p-5 row d-flex justify-content-center'>
+      <div class="grid">
+        <div class="text-center">
+          <div class="row"><div class="col">Bermarte 2020</div></div>
+          <div class="row"><div class="col"><span id='tetris'>Tetris</span> by Kristoff Bruyninckx</div></div>
+        </div>
+      </div>
   </div>
-  <footer class='navbar bg-dark text-light p-5 row d-flex justify-content-center'>
-    <div>Bermarte 2020</div>
   </footer>
-</div>
+  </div>
 
   <script src="js/jquery-3.5.1.slim.min.js"></script>
   <script src="js/popper.min.js"></script>
