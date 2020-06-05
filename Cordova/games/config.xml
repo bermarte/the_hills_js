@@ -19,7 +19,7 @@
     <allow-intent href="geo:*" />
     <platform name="browser">
         <preference name="AutoHideSplashScreen" value="true" />
-        <preference name="SplashScreenDelay" value=""/>
+        <preference name="SplashScreenDelay" value="1000"/>
 
         <preference name="SplashScreen" value="/img/browser/splashscreen.png" />
         <preference name="SplashScreenBackgroundColor" value="#4d8f93" />

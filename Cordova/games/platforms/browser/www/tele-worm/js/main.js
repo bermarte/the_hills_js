@@ -343,7 +343,7 @@ window.addEventListener("load", () => {
       ctx_tele.arc(worm[i].x, worm[i].y, box / 2, 0, 2 * Math.PI);
       ctx_tele.fill();
     }
-
+    
     //old pos of worm
     let worm_x = worm[0].x,
       worm_y = worm[0].y;
@@ -484,7 +484,7 @@ window.addEventListener("load", () => {
       let xy_pos = [x, y];
       return isArrayInArray(maze_blocks_pos, xy_pos);
     }
-
+    
     //where is the worm
     function where(x, y) {
       let xy_pos = [x, y];
@@ -505,6 +505,11 @@ window.addEventListener("load", () => {
       }
       if (dir == "down") {
         worm_y += box;
+      }
+      if (dir == "neutral") {
+        //worm in the center of stage
+        worm_y = 176;
+        worm_x = 176;
       }
     }
 
@@ -570,7 +575,7 @@ window.addEventListener("load", () => {
         x: center,
         y: center
       };
-
+      dir = "neutral";
       ctx_tele.fillStyle = "#fff";
       ctx_tele.fillRect(0, 0, c_tele.width, c_tele.height);
       ctx_tele.fillStyle = "black";
@@ -603,23 +608,29 @@ window.addEventListener("load", () => {
     }
 
   }
-  game_tele_worm = setInterval(function () {
-    draw();
-  }, 120);
+ 
+document.getElementById("tele_very_slow").addEventListener('click', play_tele_worm.bind(this, 200), false);
+document.getElementById("tele_slow").addEventListener('click', play_tele_worm.bind(this, 150), false);
+document.getElementById("tele_default").addEventListener('click', play_tele_worm.bind(this, 100), false);
+document.getElementById("tele_fast").addEventListener('click', play_tele_worm.bind(this, 50), false);
 
-  document.getElementById("play_tele-worm").addEventListener("click", play_tele_worm);
 
-  function play_tele_worm() {
+  function play_tele_worm(val) {
+    //ask first the speed via modal
     ctx_tele.textAlign = "start";
     score_tele = 0;
     lifes = 20;
     lifes_teleworm_element.innerHTML = lifes;
     score_teleworm_element.innerHTML = score_tele;
-    game_tele_worm = setInterval(draw, myspeed);
     check = true;
+
+    game_tele_worm = setInterval(function () {
+      draw();
+    }, val);
+
     commands();
   };
-  
+
 
   function commands() {
     document.getElementById("tele_left").addEventListener("click", tele_go_left);
@@ -627,6 +638,7 @@ window.addEventListener("load", () => {
     document.getElementById("tele_right").addEventListener("click", tele_go_right);
     document.getElementById("tele_down").addEventListener("click", tele_go_down);
   }
+
 
   /* 
     joystick tele-worm 

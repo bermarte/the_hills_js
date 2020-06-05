@@ -1,28 +1,45 @@
 body {
     background-color: #dbe8d8;
-    /*max-width: 3000px;*/  
-    margin:0 auto;
+    /*max-width: 3000px;*/
+    margin: 0 auto;
 }
-nav, footer{
-   
-    margin:0 auto;
+
+.text {
+    color: #343A40;
 }
-nav{
+.modal-header{
+    background-color: #343A40;
+    color: white;
+}
+.close{
+    color: white;
+    font-size: 40px;
+}
+.close:hover{
+    color: white;
+}
+
+nav, footer {
+    margin: 0 auto;
+}
+
+nav {
     max-width: 1142px;
 }
 
 .container {
     background-color: #fff;
-    
 }
 
 .card {
     font-family: Arial, Helvetica, sans-serif;
 }
-#encora{
+
+#encora {
     font-size: 20px;
 }
-#tetris{
+
+#tetris {
     font-weight: bold;
     font-size: 20px;
     color: lightblue;
@@ -102,7 +119,8 @@ nav, .nav a {
     border: 2px solid #000;
     min-height: 200px;
 }
-#canvas_black{
+
+#canvas_black {
     min-height: 100px;
     border: 2px solid #000;
 }

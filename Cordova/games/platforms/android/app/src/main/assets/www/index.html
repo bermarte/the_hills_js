@@ -70,14 +70,14 @@
       <div class="row">
         <div class="col col-12">
 
-          <div class="btn-group btn-block btn-block" role="group">
+          <div class="btn-group btn-block" role="group">
             <button class='btn btn-primary' id="play_music">play music</button>
             <button class='btn btn-primary' id="play_tetris">play game</button>
           </div>
 
         </div>
         <div class="col col-12 py-2">
-          <h4>Score: <span class="badge badge-secondary" id="score">0</span></h4>
+          <h4 class="text">Score: <span class="badge badge-secondary" id="score">0</span></h4>
           <canvas id="mijn_canvas" width="200" height="400"></canvas>
           <!-- joystick tetris-->
           <div class="w-50 mx-auto d-flex justify-content-center py-2">
@@ -104,14 +104,21 @@
           <div class="col col-12">
 
             <div class="btn-group btn-block btn-block" role="group">
-              <button class='btn btn-primary' id="play_tele-worm">play game</button>
+              <button class='btn btn-primary' id="play_tele-worm" data-toggle="modal" data-target="#tele-speed">play
+                game</button>
             </div>
           </div>
+
+
+
+
+
+
 
           <div class="col col-12 py-2">
 
             <div class="row d-flex justify-content-center">
-              <div class="d-none d-sm-inline-block">Hi-score: <span class="badge badge-secondary"
+              <div class="d-none d-sm-inline-block text">Hi-score: <span class="badge badge-secondary"
                   id="hiscore-tele-worm">0</span></div>
               Score: <span class="badge badge-secondary" id="score-tele-worm">0</span>
               Lifes: <span class="badge badge-secondary" id="lifes-tele-worm">20</span>
@@ -168,13 +175,52 @@
     <footer class='navbar bg-dark text-light p-5 row d-flex justify-content-center'>
       <div class="grid">
         <div class="text-center">
-          <div class="row"><div class="col">Bermarte 2020</div></div>
-          <div class="row"><div class="col"><span id='tetris'>Tetris</span> by Kristoff Bruyninckx</div></div>
+          <div class="row">
+            <div class="col">Bermarte 2020</div>
+          </div>
+          <div class="row">
+            <div class="col"><span id='tetris'>Tetris</span> by Kristoff Bruyninckx</div>
+          </div>
         </div>
       </div>
   </div>
   </footer>
   </div>
+
+
+
+  <!-- start modal speed -->
+  <!-- Modal -->
+  <div class="container">
+    <div class="modal fade" id="tele-speed" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h4 class="modal-title">Choose speed</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col mx-auto">  
+                  <button class="btn btn-primary btn-block" id="tele_fast">fast</button>
+                  <button class="btn btn-primary btn-block" id="tele_default">default</button>
+                  <button class="btn btn-primary btn-block" id="tele_slow">slow</button>
+                  <button class="btn btn-primary btn-block" id="tele_very_slow">very slow</button>   
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn bg-secondary text-white" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- end modal -->
 
   <script src="js/jquery-3.5.1.slim.min.js"></script>
   <script src="js/popper.min.js"></script>
