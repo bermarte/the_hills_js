@@ -12,8 +12,10 @@ window.addEventListener("load", function () {
         let dealer_score = 0; //default 0
         let you = [];
         let enemy = [];
+        let total_player = 0;
+        let total_dealer = 0;
         const MIN = 1;
-        const MAX = 11;
+        const MAX = 12;
         const BJ_MAX = 21;
         const MAX_DEALER = 15;
         const square = 30;
@@ -109,6 +111,8 @@ window.addEventListener("load", function () {
             black_div.innerHTML = "<input type='button' class='btn btn-primary' value='PLAY AGAIN' id='play_again'>";
             document.getElementById('play_again').addEventListener('click', replay);
             feedback = 'You win';
+            total_player += 1;
+            document.getElementById('black_total_score').innerHTML = total_player;
             msg_box();
         }
 
@@ -119,6 +123,8 @@ window.addEventListener("load", function () {
             black_div.innerHTML = "<input type='button' class='btn btn-primary' value='PLAY AGAIN' id='play_again'>";
             document.getElementById('play_again').addEventListener('click', replay);
             feedback = 'You loose';
+            total_dealer += 1;
+            document.getElementById('black_dealer_total_score').innerHTML = total_dealer;
             msg_box();
         }
         let tie = function () {
