@@ -22,6 +22,12 @@ window.addEventListener("load", () => {
   c_tele.height = c_tele.width;
 
   let center = c_tele.width / 2;
+  //stage begin
+  ctx_tele.textAlign = "center";
+  ctx_tele.font = "bold 18pt Arial";
+  ctx_tele.fillStyle = "blue";
+  ctx_tele.fillText("'play game' to start", center, center);
+
 
 
   let worm = [];
@@ -306,10 +312,9 @@ window.addEventListener("load", () => {
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   ];
 
-  let keyboard_active = false;
-  if (keyboard_active) {
+  document.getElementById("play_with_keys").addEventListener("click", key_active);
+  function key_active() {
     document.addEventListener("keydown", direction);
-
     function direction(e) {
       if (e.keyCode == 37 && dir != "right") {
         console.log("left");
@@ -343,7 +348,7 @@ window.addEventListener("load", () => {
       ctx_tele.arc(worm[i].x, worm[i].y, box / 2, 0, 2 * Math.PI);
       ctx_tele.fill();
     }
-    
+
     //old pos of worm
     let worm_x = worm[0].x,
       worm_y = worm[0].y;
@@ -484,7 +489,7 @@ window.addEventListener("load", () => {
       let xy_pos = [x, y];
       return isArrayInArray(maze_blocks_pos, xy_pos);
     }
-    
+
     //where is the worm
     function where(x, y) {
       let xy_pos = [x, y];
@@ -608,11 +613,11 @@ window.addEventListener("load", () => {
     }
 
   }
- 
-document.getElementById("tele_very_slow").addEventListener('click', play_tele_worm.bind(this, 200), false);
-document.getElementById("tele_slow").addEventListener('click', play_tele_worm.bind(this, 150), false);
-document.getElementById("tele_default").addEventListener('click', play_tele_worm.bind(this, 100), false);
-document.getElementById("tele_fast").addEventListener('click', play_tele_worm.bind(this, 50), false);
+
+  document.getElementById("tele_very_slow").addEventListener('click', play_tele_worm.bind(this, 200), false);
+  document.getElementById("tele_slow").addEventListener('click', play_tele_worm.bind(this, 150), false);
+  document.getElementById("tele_default").addEventListener('click', play_tele_worm.bind(this, 100), false);
+  document.getElementById("tele_fast").addEventListener('click', play_tele_worm.bind(this, 50), false);
 
 
   function play_tele_worm(val) {
@@ -646,7 +651,7 @@ document.getElementById("tele_fast").addEventListener('click', play_tele_worm.bi
     tele_up
     tele_right
     tele_down
-    */
+  */
 
   function tele_go_left() {
     console.log("left");

@@ -35,14 +35,8 @@
             <a class="nav-link" href="#tele-worm">Tele-worm</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#21">21</a>
+            <a class="nav-link" href="#21">Twenty-one</a>
           </li>
-          <!-- 
-           <div id='info_weergeven'></div>
-           <li class="nav-item">
-          <a class="nav-link" href="#" id="quit_app">quit</a>
-        </li>
-        -->
           <li class="nav-item" id="quit_app"></li>
 
         </ul>
@@ -50,15 +44,92 @@
     </nav>
 
     <div class="container p-3 py-5" id="home">
-      <h1 class="bg-dark text-white my-5">Games & Apps <span id="encora">Encora</span></h1>
+      <h1 class="bg-dark text-white my-5">Games & Apps <span id="encora">[Encora]</span></h1>
       <div class="row">
         <div class="col" id="div-info">
           <!-- only for browser -->
-          <button id='toestel_info' class='btn btn-primary btn-block'>Device Info</button>
+          <div class="btn-group btn-block" role="group">
+            <button id='toestel_info' class='btn btn-primary'>Device Info</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#rules">
+              Rules
+            </button>
+          </div>
           <h2 class='my-3'>Final assignment <span class="badge badge-secondary">2019-2020</span></h2>
-
-
           <div id='info_weergeven'></div>
+          <div class="collapse" id="rules">
+            <div class="card card-body">
+              <button class="btn btn-primary my-2" type="button" data-toggle="collapse" data-target="#tetris-info">
+                Tetris
+              </button>
+              <div class="collapse p-3" id="tetris-info">
+                <p class='info'>Do you need to know the rules of Tetris? Are you kidding me?</p>
+                <p class='info'>Different pieces are descending from the top until they touch the bottom of the field or
+                  land on a piece.
+                  In that case, they fill the space and create an obstacle to the new descending pieces.
+                  During the descend of the pieces, the player can move them.
+                  The player must move the pieces to form one or more horizontal lines made with blocks of pieces, to
+                  erase these lines and free that space occupied by the pieces.
+                  If the player cannot make the blocks disappear quickly enough, the field will start to fill, and when
+                  the pieces reach the top of the field and prevent the descend of additional pieces, the game ends.
+                </p>
+                <p class='info'>Use the gamepad you find in the app to: rotate, move to the left or the right, or moving
+                  the piece down.</p>
+                <p>
+                <ul>
+                  <li>Left arrow: moves to the left</li>
+                  <li>Right arrow: moves to the right</li>
+                  <li>Down arrow: moves down</li>
+                  <li>Up arrow: rotates 90 degrees counterclockwise</li>
+                </ul>
+                </p>
+              </div>
+              <button class="btn btn-primary my-2" type="button" data-toggle="collapse" data-target="#tele-worm-info">
+                Tele-worm
+              </button>
+              <div class="collapse" id="tele-worm-info">
+                <p class="info">It's variation of the Snake game.</p>
+                <p class="info">
+                  The player controls a round shape, a dot.
+                  The blue dot can move horizontally and vertically.
+                  At the beginning, the player has 20 lives.
+                  Goal of the game is to eat as many red dots as possible while staying alive.
+                  When the blue dot eats the target, he grows a tail and points are added to its score.
+                  When the blue dot hits one of the red obstacles, the player loses a life.
+                  The blue dot is then teleported to the centre but continues to move.
+                  When there are no more lives available, the game ends.
+                </p>
+                <p class="info">
+                  Use the gamepad you find in the app to: move to the left or the right, or going up or down.
+                  Instead of the gamepad, you can use the left, right, and down arrows on your keyboard.
+                </p>
+                <p class="info">
+                <ul>
+                  <li>Left arrow: moves to the left</li>
+                  <li>Right arrow: moves to the right</li>
+                  <li>Down arrow: moves down</li>
+                  <li>Up arrow: moves up</li>
+                </ul>
+                </p>
+              </div>
+              <button class="btn btn-primary my-2" type="button" data-toggle="collapse" data-target="#twentyone-info">
+                Twenty-one
+              </button>
+
+              <div class="collapse" id="twentyone-info">
+                <p class="info">
+                  This one is a simplified version of Twenty-one, also known as Blackjack.
+                </p>
+                <p class="info"></p>
+                The player must play against the dealer.
+                Pressing 'hit' gives a random number (a number between 1 and 11).
+                The player can continue to get numbers or stop. Each time the numbers are added to the total.
+                When the player chooses 'stand' then it is time for the dealer to play.
+                The winner is the one with the total closest to or equal to 21, without exceeding it.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -106,22 +177,19 @@
             <div class="btn-group btn-block btn-block" role="group">
               <button class='btn btn-primary' id="play_tele-worm" data-toggle="modal" data-target="#tele-speed">play
                 game</button>
+              <button class='btn btn-primary' id="play_with_keys">use keyboard</button>
             </div>
           </div>
-
-
-
-
-
-
 
           <div class="col col-12 py-2">
 
             <div class="row d-flex justify-content-center">
-              <div class="d-none d-sm-inline-block text">Hi-score: <span class="badge badge-secondary"
+              <div class="d-none d-sm-inline-block text py-1">Hi-score: <span class="badge badge-secondary mr-1"
                   id="hiscore-tele-worm">0</span></div>
-              Score: <span class="badge badge-secondary" id="score-tele-worm">0</span>
-              Lifes: <span class="badge badge-secondary" id="lifes-tele-worm">20</span>
+              <div class="d-sm-inline-block text py-1"> Score: <span class="badge badge-secondary mr-1"
+                  id="score-tele-worm">0</span></div>
+              <div class="d-sm-inline-block text py-1"> Lifes: <span class="badge badge-secondary"
+                  id="lifes-tele-worm">20</span></div>
             </div>
 
             <div class="w-50 mx-auto d-flex justify-content-center py-2">
@@ -149,10 +217,15 @@
     </div>
     <!-- 21 -->
     <div class="container p-3 py-5" id="21">
-      <h1 class="bg-dark text-white my-5">21</h1>
+
+      <h1 class="bg-dark text-white my-5">Twenty-one</h1>
       <div class="col col-12 py-2">
-        <h4>Score: <span class="badge badge-secondary" id="black_score">0</span> Dealer:
-          <span class="badge badge-secondary" id="black_dealer_score">?</span></h4>
+        <div class="row d-flex justify-content-center">
+          <div class="d-sm-inline-block text text_21 py-1">Score: <span class="badge badge-secondary mr-1"
+              id="black_score">0</span></div>
+          <div class="d-sm-inline-block text text_21 py-1">Dealer:
+            <span class="badge badge-secondary" id="black_dealer_score">?</span></div>
+        </div>
         <div id="black_results"></div>
         <div class="container" id='container_black'>
           <div class="w-50 mx-auto d-flex justify-content-center py-2">
@@ -187,8 +260,6 @@
   </footer>
   </div>
 
-
-
   <!-- start modal speed -->
   <!-- Modal -->
   <div class="container">
@@ -204,11 +275,11 @@
           </div>
           <div class="modal-body">
             <div class="row">
-              <div class="col mx-auto">  
-                  <button class="btn btn-primary btn-block" id="tele_fast">fast</button>
-                  <button class="btn btn-primary btn-block" id="tele_default">default</button>
-                  <button class="btn btn-primary btn-block" id="tele_slow">slow</button>
-                  <button class="btn btn-primary btn-block" id="tele_very_slow">very slow</button>   
+              <div class="col mx-auto">
+                <button class="btn btn-primary btn-block" id="tele_fast">fast</button>
+                <button class="btn btn-primary btn-block" id="tele_default">default</button>
+                <button class="btn btn-primary btn-block" id="tele_slow">slow</button>
+                <button class="btn btn-primary btn-block" id="tele_very_slow">very slow</button>
               </div>
             </div>
           </div>
