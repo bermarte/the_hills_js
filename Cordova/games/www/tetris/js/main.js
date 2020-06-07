@@ -186,7 +186,9 @@ Blok.prototype.vast = function () {
             }
             if (this.y + r < 0) {
                 if (confirm("GAME OVER")) {
-
+                    if (window.cordova.platformId == "android") {
+                        alert("'play game' to restart");
+                    }
                     cancelAnimationFrame(id);
                     veld = [];
 
@@ -297,7 +299,7 @@ function rotate() {
     huidig_blok.draaien();
     drop_start = Date.now();
 }
-//controls from main.js
+/********************* controls from main.js ****************************************/
 const boodschap = document.createElement('div');
 boodschap.setAttribute("class", "container");
 document.getElementById('toestel_info').addEventListener('click', device_info);
