@@ -2,8 +2,8 @@ window.addEventListener("load", function () {
     const c_black = document.getElementById("canvas_black");
     const ctx_black = c_black.getContext("2d");
 
-    c_black.width = 500;//max śhould be 1070 (1 X 21)
-    c_black.height = 200;
+    c_black.width = 400;//max śhould be 1070 (1 X 21)
+    c_black.height = 150;
 
     const stage = new Stage("#fff", c_black.width, c_black.height);
 
@@ -21,11 +21,11 @@ window.addEventListener("load", function () {
         const square = 30;
         //canvas
         let pos_x_you = 0;
-        const pos_y_you = 25;
+        const pos_y_you = 12;//y of player
         let spacer = 20;
 
         let pos_x_enemy = 0;
-        const pos_y_enemy = 125;
+        const pos_y_enemy = 89;//y of dealer
 
         Object.defineProperty(this, 'surrender', {
             get: function () {

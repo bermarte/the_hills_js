@@ -7,6 +7,7 @@
     content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />-->
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -49,19 +50,19 @@
         <div class="col" id="div-info">
           <!-- only for browser -->
           <div class="btn-group btn-block" role="group">
-            <button id='toestel_info' class='btn btn-primary'>Device Info</button>
+            <button id='toestel_info' class='btn btn-primary' data-toggle="collapse" data-target="#info_weergeven">Device Info</button>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#rules">
               Rules
             </button>
           </div>
           <h2 class='my-3'>Final assignment <span class="badge badge-secondary">2019-2020</span></h2>
-          <div id='info_weergeven'></div>
+          <div class="collapse" id='info_weergeven'></div>
           <div class="collapse" id="rules">
             <div class="card card-body">
-              <button class="btn btn-primary my-2" type="button" data-toggle="collapse" data-target="#tetris-info">
+              <button class="btn btn-primary my-2" type="button" data-toggle="collapse" data-target="#tetris-info" id="index_tetris">
                 Tetris
               </button>
-              <div class="collapse p-3" id="tetris-info">
+              <div class="collapse" id="tetris-info">
                 <p class='info'>Do you need to know the rules of Tetris? Are you kidding me?</p>
                 <p class='info'>Different pieces are descending from the top until they touch the bottom of the field or
                   land on a piece.
@@ -232,7 +233,6 @@
         <div class="container" id='container_black'>
           <div class="w-50 mx-auto d-flex justify-content-center py-2">
             <canvas id="canvas_black"></canvas>
-
           </div>
 
           <div class="row">
