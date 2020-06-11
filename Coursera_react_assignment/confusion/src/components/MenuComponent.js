@@ -9,6 +9,9 @@ class Menu extends Component {
         console.log('Menu Component constructor invoked');
 
 }
+componentDidMount() {
+    console.log('Menu Component componentDidMount invoked');
+}
 
 render() {
 
