@@ -155,3 +155,4 @@ cd myApp
 cordova platform add android --save
 cordova run android --save
 ```
+<img src='games/res/twenty-one_mobile.png' width='300'>
