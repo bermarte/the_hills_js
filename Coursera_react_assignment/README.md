@@ -21,4 +21,12 @@ using nmp instead:<br>
 ```
 npm install bootstrap@4.0.0 reactstrap@5.0.0 react-popper@0.9.2 --save
 ```
+add font awesome<br>
+```
+yarn add font-awesome@4.7.0 --save
+```
+add Bootstrap's social media buttons
+```
+yarn add bootstrap-social@5.1.1 --save
+```
 
