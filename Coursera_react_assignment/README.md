@@ -29,4 +29,7 @@ add Bootstrap's social media buttons
 ```
 yarn add bootstrap-social@5.1.1 --save
 ```
-
+add router
+```
+yarn add react-router-dom@4.2.2
+```
