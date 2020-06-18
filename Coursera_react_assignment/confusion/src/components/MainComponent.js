@@ -33,16 +33,24 @@ class Main extends Component {
         />
       );
     }
+    //we consider match and ignore location and history
+    const DishWithId = ({match}) => {
+      return(
+          <DishDetail dish={this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]} 
+            comments={this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))} />
+      );
+    };
 
     return (
       <div>
         <Header />
         <Switch>
           <Route path="/home" component={HomePage} />
-          //how to pass props with the component
+          {/* how to pass props with the component */}
           <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />} />
+          <Route path='/menu/:dishId' component={DishWithId} />
           <Route exact path="/contactus" component={Contact} />
-          //if the route does not match anyone of these Redirects
+          {/* if the route does not match anyone of these Redirects */}
           <Redirect to="/home" />
         </Switch>
         <Footer />
