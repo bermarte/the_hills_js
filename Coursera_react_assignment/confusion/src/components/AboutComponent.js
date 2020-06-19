@@ -1,11 +1,10 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { LEADERS as leaders } from '../shared/leaders';
 
-export function RenderLeader() {
+function RenderLeader(props) {
     return (
-        leaders.map((leader) => {
+        props.leaders.map((leader) => {
             return (
                 <div key={leader.id} className="col-12 mt-5">
                     <Media tag="li">
@@ -14,8 +13,9 @@ export function RenderLeader() {
                         </Media>
                         <Media body className="ml-5">
                             <Media heading>{leader.name}</Media>
+                        
                             <h6>{leader.designation}</h6>
-                            <p>{leader.description}</p>
+                            <p className="pt-2">{leader.description}</p>
                         </Media>
                     </Media>
                 </div>
@@ -76,12 +76,14 @@ function About(props) {
                     </Card>
                 </div>
             </div>
+            <hr />
             <div className="row row-content border-bottom-0">
                 <div className="col-12">
                     <h2>Corporate Leadership</h2>
                 </div>
                 <div className="col-12">
-                    <RenderLeader />
+                    
+                    <RenderLeader leaders={props.leaders}/>
                 </div>
             </div>
         </div>

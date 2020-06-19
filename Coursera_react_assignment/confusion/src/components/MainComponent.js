@@ -51,7 +51,7 @@ class Main extends Component {
           <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />} />
           <Route path='/menu/:dishId' component={DishWithId} />
           <Route exact path="/contactus" component={Contact} />
-          <Route exact path="/aboutus" component={() => <About leaders={this.state.leaders} />} />
+          <Route exact path="/aboutus"component={() => <About leaders={this.state.leaders} />} />
           {/* if the route does not match anyone of these Redirects */}
           <Redirect to="/home" />
         </Switch>
