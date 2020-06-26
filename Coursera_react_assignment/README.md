@@ -33,3 +33,8 @@ add router
 ```
 yarn add react-router-dom@4.2.2
 ```
+add redux (ualso possible npm install...)
+```
+yarn add redux@3.7.2
+yarn add react-redux@5.0.7
+```
