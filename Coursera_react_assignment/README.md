@@ -37,4 +37,5 @@ add redux (ualso possible npm install...)
 ```
 yarn add redux@3.7.2
 yarn add react-redux@5.0.7
+yarn add react-redux-form@1.16.8
 ```
