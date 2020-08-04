@@ -8,6 +8,8 @@ import DishDetail from './DishDetailComponent';
 import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+//action creator
+import { addComment } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
   return {
@@ -17,6 +19,19 @@ const mapStateToProps = state => {
     leaders: state.leaders
   };
 }
+
+//redux: dispatch
+const mapDispatchToProps = dispatch => ({
+  //dispatch(addComment()) addComment is the action creator
+
+  //addComment(dishId, rating, author, comment) action call
+  //will return the action objects for adding a comment,
+  // the action call is given as argument to the dispatch function
+  //this dispatch function will be called and used when invoking addComment() function
+  //it is available thanks to the export down below
+  //and passed as attribute to the DishDetail Component
+  addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment))
+});
 
 class Main extends Component {
 
@@ -38,7 +53,10 @@ class Main extends Component {
     const DishWithId = ({ match }) => {
       return (
         <DishDetail dish={this.props.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]}
-          comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))} />
+          comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))}
+          // passing function as props to dispatch the action to the store
+          addComment={this.props.addComment}
+          />
       );
     };
 
@@ -61,4 +79,4 @@ class Main extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
