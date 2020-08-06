@@ -40,3 +40,9 @@ yarn add redux@3.7.2
 yarn add react-redux@5.0.7
 yarn add react-redux-form@1.16.8
 ```
+add redux thunk
+```
+yarn add redux-thunk@2.2.0
+yarn add redux-logger@3.0.6
+
+```
