@@ -17,32 +17,49 @@ yarn add bootstrap@4.0.0
 yarn add reactstrap@5.0.0
 yarn add react-popper@0.9.2
 ```
-using nmp instead:<br>
+using nmp instead:
 ```
 npm install bootstrap@4.0.0 reactstrap@5.0.0 react-popper@0.9.2 --save
 ```
-add font awesome<br>
+install font awesome
 ```
 yarn add font-awesome@4.7.0 --save
 ```
-add Bootstrap's social media buttons
+install Bootstrap's social media buttons
 ```
 yarn add bootstrap-social@5.1.1 --save
 ```
-add router
+install router
 ```
 yarn add react-router-dom@4.2.2
 ```
 
-add redux (ualso possible npm install...)
+install redux (also possible npm install...)
 ```
 yarn add redux@3.7.2
 yarn add react-redux@5.0.7
 yarn add react-redux-form@1.16.8
 ```
-add redux thunk
+install thunk and logger
 ```
 yarn add redux-thunk@2.2.0
 yarn add redux-logger@3.0.6
 
 ```
+## start the project
+```
+npm start
+```
+or
+```
+yarn start
+```
+build dependencies
+```
+npm install
+```
+or (creates also yarn.lock file)
+```
+yarn install
+```
+
