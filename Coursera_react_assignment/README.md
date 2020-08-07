@@ -62,4 +62,27 @@ or (creates also yarn.lock file)
 ```
 yarn install
 ```
+install json server as a global module
+```
+npm install -g json-server
+```
+how to use json-server with a delay of 2 seconds on port 3001
+```
+npx json-server --watch db.json -d 2000 -p 3001
+```
+or
+```
+json-server --watch db.json -d 2000 -p 3001
+```
+if json-server gives error, because it is not found, then follow these steps first
+```
+sudo su
+npm install -g json-server
+exit
+```
+install cross-fetch (a more compatible version of fetch)
+```
+yarn add cross-fetch@2.1.0
+```
+
 
