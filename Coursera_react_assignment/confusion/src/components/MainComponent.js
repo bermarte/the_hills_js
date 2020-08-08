@@ -9,7 +9,7 @@ import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 //action creator
-import { addComment, fetchDishes, fetchComments, fetchPromos } from '../redux/ActionCreators';
+import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 
 const mapStateToProps = state => {
@@ -28,10 +28,10 @@ const mapDispatchToProps = dispatch => ({
   //addComment(dishId, rating, author, comment) action call
   //will return the action objects for adding a comment,
   // the action call is given as argument to the dispatch function
-  //this dispatch function will be called and used when invoking addComment() function
+  //this dispatch function will be called and used when invoking postComment -> addComment() function
   //it is available thanks to the export down below
   //and passed as attribute to the DishDetail Component
-  addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
+  postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
   //thunk
   //used in mapDispactchProps to make it available in the component
   fetchDishes: () => {dispatch(fetchDishes())},
@@ -78,7 +78,7 @@ class Main extends Component {
           comments={this.props.comments.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))}
           commentErrMess={this.props.comments.errMess}
           // passing function as props to dispatch the action to the store
-          addComment={this.props.addComment}
+          postComment={this.props.postComment}
           />
       );
     };

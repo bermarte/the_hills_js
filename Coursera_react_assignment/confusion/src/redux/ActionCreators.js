@@ -2,15 +2,57 @@ import * as ActionTypes from './ActionTypes';
 import { DISHES } from '../shared/dishes';
 import { baseUrl } from '../shared/baseUrl';
 
-export const addComment = (dishId, rating, author, comment) => ({
+//addComment will be used by postComment to push 
+//the comment into the redux store
+export const addComment = (comment) => ({
     type: ActionTypes.ADD_COMMENT,
-    payload: {
-         dishId: dishId,
-         rating: rating,
-         author: author,
-         comment: comment
-    }
+    payload: comment
 });
+
+//action creator
+//POST operation on the server
+//it is a thunk
+export const postComment = (dishId, rating, author, comment) => (dispatch) => {
+    
+    const newComment = {
+        dishId: dishId,
+        rating: rating,
+        author: author,
+        comment: comment
+    }
+    newComment.date = new Date().toISOString();
+    //post the comment to the server
+    //if you don't specify will be set by default to GET
+    //send data inside the body of the message
+    
+    //structure of the request method
+    return fetch(baseUrl + 'comments', {
+        method: 'POST',
+        body: JSON.stringify(newComment),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else {
+            var error = new Error('Errot '+ response.status + ': '+ response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    .then(response => dispatch(addComment(response)))
+    .catch(error => { console.log('Post comments ', error.message);
+        alert('Your comment could not be posted\nError: '+error.message)});
+}
 /*
 this action creator will change only the comments part of the state
 */

@@ -19,8 +19,8 @@ export const Comments = (state = {
             var comment = action.payload;
             //later the comment.id will be generated from the server
             //for now it comes from the length of the state array
-            comment.id = state.comments.length;
-            comment.date = new Date().toISOString();
+            //comment.id = state.comments.length; (done)
+            //comment.date = new Date().toISOString(); (done)
             //concat does not change the state(immutability), instead
             //copy it and creates a new array
             //the view will be now able to show a new comment but it will not yet be persisting
