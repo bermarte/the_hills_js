@@ -20,10 +20,36 @@ export const fetchDishes = () => (dispatch) => {
     dispatch(dishesLoading(true));
 
     return fetch(baseUrl + 'dishes')
+        .then(response => {
+            //gives back error or data
+            //if else: when the server responds
+            if (response.ok) {
+                //the response will be available to the next thens chained
+                return response;
+            }
+            else {
+                //error code is response.status
+                //response.statusText is the error message
+                var error = new Error('Errot '+ response.status + ': '+ response.statusText);
+                error.response = response;
+                //throwing error so we can implement catch
+                throw error;
+            }
+        },
+        //implemented error handler
+        //you don't hear anything from the server
+        //if the server is not error it will throw this error
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
         //promise and response => response.json() is a callback function
         .then(response => response.json())
         //put dishes into the redux store
-        .then(dishes => dispatch(addDishes(dishes)));
+        .then(dishes => dispatch(addDishes(dishes)))
+        //rejected promise
+        //from throw error or throw errmess
+        .catch(error => dispatch(dishesFailed(error.message)));
 }
 
 export const dishesLoading = () => ({
@@ -44,8 +70,24 @@ export const addDishes = (dishes) => ({
 
 export const fetchComments = () => (dispatch) => {
     return fetch(baseUrl + 'comments')
+        .then(response => {
+            if (response.ok) {
+                return response;
+            }
+            else {
+                var error = new Error('Errot '+ response.status + ': '+ response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+
         .then(response => response.json())
-        .then(comments => dispatch(addComments(comments)));
+        .then(comments => dispatch(addComments(comments)))
+        .catch(error => dispatch(commentsFailed(error.message)));
 }
 export const commentsFailed = (errmess) => ({
     type: ActionTypes.COMMENTS_FAILED,
@@ -60,10 +102,24 @@ export const addComments = (comments) => ({
 
 export const fetchPromos = () => (dispatch) => {
     dispatch(promosLoading(true));
-
     return fetch(baseUrl + 'promotions')
-        .then(response => response.json())
-        .then(promos => dispatch(addPromos(promos)));
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else {
+            var error = new Error('Errot '+ response.status + ': '+ response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    .then(promos => dispatch(addPromos(promos)))
+    .catch(error => dispatch(promosFailed(error.message)));
 }
 
 export const promosLoading = () => ({
