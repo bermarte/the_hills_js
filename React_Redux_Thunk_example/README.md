@@ -6,5 +6,6 @@ yarn add react-scripts
 yarn create-react-app react-redux-thunk-tutorial
 yarn add redux
 yarn add react-redux
+yarn add redux-thunk
 yarn start
 ```
