@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 //action creator
 import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
+//animation in router
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const mapStateToProps = state => {
   return {
@@ -86,16 +88,21 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        <Switch>
-          <Route path="/home" component={HomePage} />
-          {/* how to pass props with the component */}
-          <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
-          <Route path='/menu/:dishId' component={DishWithId} />
-          <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
-          <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
-          {/* if the route does not match anyone of these Redirects */}
-          <Redirect to="/home" />
-        </Switch>
+        <TransitionGroup>
+          {/* the following is classNames, not className */}
+          <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
+            <Switch>
+              <Route path="/home" component={HomePage} />
+              {/* how to pass props with the component */}
+              <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
+              <Route path='/menu/:dishId' component={DishWithId} />
+              <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+              <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
+              {/* if the route does not match anyone of these Redirects */}
+              <Redirect to="/home" />
+            </Switch>
+          </CSSTransition>
+        </TransitionGroup>
         <Footer />
       </div>
     );

@@ -31,3 +31,26 @@ address{
 .navbar-dark {
     background-color: #512DA8;
 }
+
+.page-enter {
+    opacity: 0.01;
+    transform: translateX(-100%);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateX(0%);/* it will be exactly in its position in the layout */
+    transition: all 300ms ease-in; /* starts quickly and slows down */
+}
+
+.page-exit {
+    opacity: 1;
+    transform: translateX(0%);/* it will be the starting point */
+}
+
+.page-xit-active {
+    /* the page exits is completed */
+    opacity: 0.01;
+    transform: translateX(100%);/* moves away to the right side */
+    transition: all 300ms ease-out;
+}
