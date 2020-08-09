@@ -1,5 +1,5 @@
 import * as ActionTypes from './ActionTypes';
-import { DISHES } from '../shared/dishes';
+//import { DISHES } from '../shared/dishes';
 import { baseUrl } from '../shared/baseUrl';
 
 //addComment will be used by postComment to push 
@@ -13,7 +13,7 @@ export const addComment = (comment) => ({
 //POST operation on the server
 //it is a thunk
 export const postComment = (dishId, rating, author, comment) => (dispatch) => {
-    
+
     const newComment = {
         dishId: dishId,
         rating: rating,
@@ -39,7 +39,7 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
             return response;
         }
         else {
-            var error = new Error('Errot '+ response.status + ': '+ response.statusText);
+            var error = new Error('Error '+ response.status + ': '+ response.statusText);
             error.response = response;
             throw error;
         }
@@ -72,7 +72,7 @@ export const fetchDishes = () => (dispatch) => {
             else {
                 //error code is response.status
                 //response.statusText is the error message
-                var error = new Error('Errot '+ response.status + ': '+ response.statusText);
+                var error = new Error('Error '+ response.status + ': '+ response.statusText);
                 error.response = response;
                 //throwing error so we can implement catch
                 throw error;
@@ -117,7 +117,7 @@ export const fetchComments = () => (dispatch) => {
                 return response;
             }
             else {
-                var error = new Error('Errot '+ response.status + ': '+ response.statusText);
+                var error = new Error('Error '+ response.status + ': '+ response.statusText);
                 error.response = response;
                 throw error;
             }
@@ -150,7 +150,7 @@ export const fetchPromos = () => (dispatch) => {
             return response;
         }
         else {
-            var error = new Error('Errot '+ response.status + ': '+ response.statusText);
+            var error = new Error('Error '+ response.status + ': '+ response.statusText);
             error.response = response;
             throw error;
         }
