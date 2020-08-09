@@ -84,9 +84,11 @@ install cross-fetch (a more compatible version of fetch)
 ```
 yarn add cross-fetch@2.1.0
 ```
-install animation packages
+install animation packages (react-animation-components needs also prop-types)
 ```
 yarn add react-transition-group@2.3.0
+yarn add react-animation-components@3.0.0
+yarn add prop-types@15.6.0
 ```
 
 
