@@ -4,6 +4,7 @@ import { Dishes } from './dishes';
 import { Comments } from './comments';
 import { Leaders } from './leaders';
 import { Promotions } from './promotions';
+import { Feedback } from './feedback';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { InitialFeedback } from './forms';
@@ -17,7 +18,8 @@ export const configureStore = () => {
             leaders: Leaders,
             ...createForms({
                 feedback: InitialFeedback,
-            })
+            }),
+            feedback: Feedback
         }),
         //enhancer
         //thunk and logger will be available inside the application

@@ -46,7 +46,7 @@ yarn add redux-thunk@2.2.0
 yarn add redux-logger@3.0.6
 
 ```
-## start the project
+## start the project, dependencies
 ```
 npm start
 ```
@@ -90,5 +90,6 @@ yarn add react-transition-group@2.3.0
 yarn add react-animation-components@3.0.0
 yarn add prop-types@15.6.0
 ```
-
+## deploy
+npm run build
 

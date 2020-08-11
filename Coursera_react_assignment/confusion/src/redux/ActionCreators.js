@@ -1,5 +1,4 @@
 import * as ActionTypes from './ActionTypes';
-//import { DISHES } from '../shared/dishes';
 import { baseUrl } from '../shared/baseUrl';
 
 //addComment will be used by postComment to push 
@@ -22,7 +21,7 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
     }
     newComment.date = new Date().toISOString();
     //post the comment to the server
-    //if you don't specify will be set by default to GET
+    //if you don't specify the HTTP verb, it will be set by default to GET
     //send data inside the body of the message
     
     //structure of the request method
@@ -54,7 +53,7 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
         alert('Your comment could not be posted\nError: '+error.message)});
 }
 /*
-this action creator will change only the comments part of the state
+the last action creator will change only the comments part of the state
 */
 
 export const fetchDishes = () => (dispatch) => {
@@ -64,9 +63,8 @@ export const fetchDishes = () => (dispatch) => {
     return fetch(baseUrl + 'dishes')
         .then(response => {
             //gives back error or data
-            //if else: when the server responds
             if (response.ok) {
-                //the response will be available to the next thens chained
+                //the response will be available to the next .then chain
                 return response;
             }
             else {
@@ -79,8 +77,8 @@ export const fetchDishes = () => (dispatch) => {
             }
         },
         //implemented error handler
-        //you don't hear anything from the server
-        //if the server is not error it will throw this error
+        //if you don't hear anything from the server
+        //it will throw this error
         error => {
             var errmess = new Error(error.message);
             throw errmess;
@@ -90,7 +88,6 @@ export const fetchDishes = () => (dispatch) => {
         //put dishes into the redux store
         .then(dishes => dispatch(addDishes(dishes)))
         //rejected promise
-        //from throw error or throw errmess
         .catch(error => dispatch(dishesFailed(error.message)));
 }
 
@@ -137,7 +134,6 @@ export const commentsFailed = (errmess) => ({
 });
 
 export const addComments = (comments) => ({
-    //this is a function that returns an action
     type: ActionTypes.ADD_COMMENTS,
     payload: comments
 });
@@ -174,7 +170,99 @@ export const promosFailed = (errmess) => ({
 });
 
 export const addPromos = (promos) => ({
-    //this is a function that returns an action
     type: ActionTypes.ADD_PROMOS,
     payload: promos
+});
+
+export const leadersLoading = () => ({
+    type: ActionTypes.LEADERS_LOADING
+});
+
+export const leadersFailed = (errmess) => ({
+    type: ActionTypes.LEADERS_FAILED,
+    payload: errmess
+});
+
+export const addLeaders = (leaders) => ({
+    type: ActionTypes.ADD_LEADERS,
+    payload: leaders
+});
+
+export const fetchLeaders = () => (dispatch) => {
+    dispatch(leadersLoading());
+    
+    return fetch(baseUrl + 'leaders')
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else {
+            var error = new Error('Error '+ response.status + ': '+ response.statusText);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    .then(leaders => dispatch(addLeaders(leaders)))
+    .catch(error => dispatch(leadersFailed(error.message)));
+}
+
+export const addFeedback = (feedback) => ({
+    type: ActionTypes.ADD_FEEDBACK,
+    payload: feedback
+});
+
+export const postFeedback = (
+    firstname, lastname, telnum,
+    email, agree, contactType, message) => (dispatch) => {
+      
+    const newFeedback = {
+        firstname: firstname,
+        lastname: lastname,
+        telnum: telnum,
+        email: email,
+        agree: agree,
+        contactType: contactType,
+        message: message
+    }
+    newFeedback.date = new Date().toISOString();
+    return fetch(baseUrl + 'feedback', {
+        method: 'POST',
+        body: JSON.stringify(newFeedback),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    })
+    .then(response => {
+        if (response.ok) {
+            return response;
+        }
+        else {
+            alert('else done');
+            var error = new Error(`Error ${response.status} : ${response.statusTex}`);
+            error.response = response;
+            throw error;
+        }
+    },
+    error => {
+        var errmess = new Error(error.message);
+        throw errmess;
+    })
+    .then(response => response.json())
+    .then(response => dispatch(addFeedback(response)))
+    .then(response => 
+        alert(`Thank you for your feedback!\n ${JSON.stringify(response.payload, null, " ")}`))
+    .catch(error => { console.log('Post feedback ', error.message);
+        alert(`Your feedback could not be posted\nError: ${error.message}`)}); 
+
+}
+
+export const feedbackFailed = (errmess) => ({
+    type: ActionTypes.FEEDBACK_FAILED,
+    payload: errmess
 });

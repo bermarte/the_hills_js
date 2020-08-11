@@ -9,7 +9,7 @@ import About from './AboutComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 //action creator
-import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/ActionCreators';
+import { postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders, postFeedback } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 //animation in router
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -19,7 +19,8 @@ const mapStateToProps = state => {
     dishes: state.dishes,
     comments: state.comments,
     promotions: state.promotions,
-    leaders: state.leaders
+    leaders: state.leaders,
+    feedback: state.feedback
   };
 }
 
@@ -29,19 +30,21 @@ const mapDispatchToProps = dispatch => ({
 
   //addComment(dishId, rating, author, comment) action call
   //will return the action objects for adding a comment,
-  // the action call is given as argument to the dispatch function
+  //the action call is given as a argument to the dispatch function
   //this dispatch function will be called and used when invoking postComment -> addComment() function
   //it is available thanks to the export down below
   //and passed as attribute to the DishDetail Component
   postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
   //thunk
-  //used in mapDispactchProps to make it available in the component
+  //used in mapDispactchProps to make it available to the component
   fetchDishes: () => {dispatch(fetchDishes())},
   //reset the form
   //the form will be calles 'feedback'
   resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
   fetchComments: () => {dispatch(fetchComments())},
-  fetchPromos: () => {dispatch(fetchPromos())}
+  fetchPromos: () => {dispatch(fetchPromos())},
+  fetchLeaders: () => {dispatch(fetchLeaders())},
+  postFeedback: (feedbackId, firstname, lastname, telnum,email, agree, contactType, message) => dispatch(postFeedback(feedbackId, firstname, lastname, telnum,email, agree, contactType, message))
 });
 
 class Main extends Component {
@@ -51,6 +54,7 @@ class Main extends Component {
     this.props.fetchDishes();
     this.props.fetchComments();
     this.props.fetchPromos();
+    this.props.fetchLeaders();
   };
 
   render() {
@@ -62,7 +66,9 @@ class Main extends Component {
           promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
           promosLoading={this.props.promotions.isLoading}
           promosErrMess={this.props.promotions.errMess}
-          leader={this.props.leaders.filter((leader) => leader.featured)[0]}
+          leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]}
+          leadersLoading={this.props.leaders.isLoading}
+          leadersErrMess={this.props.leaders.errMess}
         />
       );
     }
@@ -88,12 +94,12 @@ class Main extends Component {
           <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
             <Switch>
               <Route path="/home" component={HomePage} />
-              {/* how to pass props with the component */}
+              {/* NB how to pass props with the component */}
               <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
               <Route path='/menu/:dishId' component={DishWithId} />
-              <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+              <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
               <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
-              {/* if the route does not match anyone of these Redirects */}
+              {/* if the route does not match anyone of these Redirects goes to /home */}
               <Redirect to="/home" />
             </Switch>
           </CSSTransition>
