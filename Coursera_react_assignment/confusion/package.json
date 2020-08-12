@@ -27,7 +27,7 @@
     "webpack-dev-server": "3.1.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "(cd ./json-server && ./run.sh) & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
