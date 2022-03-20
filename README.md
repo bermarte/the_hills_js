@@ -8,7 +8,7 @@ Various exercises about JavaScript, some of them done during the training at
 
 ##Screenshots
 
-![The Hills JavaScript](../assets/imgs/JS.png)
+![The Hills JavaScript](/assets/imgs/JS.png)
 
 ## Getting Started
 
